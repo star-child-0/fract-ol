@@ -6,7 +6,7 @@
 /*   By: cscelfo <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 17:02:42 by cscelfo           #+#    #+#             */
-/*   Updated: 2023/02/20 18:02:41 by cscelfo          ###   ########.fr       */
+/*   Updated: 2023/02/20 19:02:57 by cscelfo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # define MLX_ERROR -1
 # define RED_PIXEL 0xFF0000
 # define GREEN_PIXEL 0xFF00
+# define BLUE_PIXEL 0x0000FF 
 
 typedef struct s_data
 {
