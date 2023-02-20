@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_key_hooks.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cscelfo <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/08 19:57:12 by anvannin          #+#    #+#             */
-/*   Updated: 2023/02/13 18:12:57 by anvannin         ###   ########.fr       */
+/*   Created: 2023/02/11 17:09:52 by cscelfo           #+#    #+#             */
+/*   Updated: 2023/02/20 18:01:05 by cscelfo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
-int	main(int argc, char *argv[])
+/*
+int	ft_handle_nothing()
 {
-	if (argc != 2)
-		return (0);
-	if (!ft_strncmp(argv[1], "Julia", ft_strlen("Julia")))
-		ft_printf("Julia\n");
-	else if (!ft_strncmp(argv[1], "Mandelbrot", ft_strlen("Julia")))
-		ft_printf("Mandelbrot\n");
-	return (0);	
+	return (0);
+}
+*/
+int	ft_close(int keycode, t_data *data)
+{
+	if (keycode == XK_Escape) //Press ESC to close the window
+		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+	ft_printf("Keypress: %d\n", keycode);
+	return (0);
 }
