@@ -33,4 +33,10 @@ fclean: clean
 
 re: fclean all
 
+push:
+	git add .
+	git commit -m "make push update"
+	git push
+
 .PHONY:	all clean fclean re
+.SILENT:
