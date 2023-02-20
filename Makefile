@@ -4,7 +4,7 @@ LIBFT = libft/libft.a
 
 OBJECTS = $(FILES:.c=.o)
 
-CC = gcc
+CC = clang
 
 CFLAGS = -Wall -Wextra -Werror
 
