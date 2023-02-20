@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cscelfo <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 17:02:42 by cscelfo           #+#    #+#             */
-/*   Updated: 2023/02/20 18:02:41 by cscelfo          ###   ########.fr       */
+/*   Updated: 2023/02/20 19:41:08 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,12 @@ typedef struct s_data
 	void	*mlx_ptr;
 	void	*win_ptr;
 }	t_data;
+
+typedef struct s_coords
+{
+	float	x;
+	float	y;
+}	t_coords;
 
 int	ft_close(int keycode, t_data *data);
 //int	ft_handle_nothing(void *data);
