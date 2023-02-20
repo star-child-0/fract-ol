@@ -1,4 +1,4 @@
-FILES = main.c 
+FILES = ft_draw.c ft_key_hooks.c ft_main.c \
 
 LIBFT = libft/libft.a
 
@@ -17,7 +17,7 @@ all: $(NAME)
 $(NAME): $(OBJECTS)
 	make -C ./libft
 	make all -C ./minilibx-linux
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJECTS) $(LIBFT)
+	$(CC) $(CFLAGS) $(OBJECTS) -o $(NAME) -L minilibx-linux -lmlx -lXext -lX11 -lm $(LIBFT)
 	clear
 
 clean:

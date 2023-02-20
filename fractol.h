@@ -3,16 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cscelfo <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/08 19:56:41 by anvannin          #+#    #+#             */
-/*   Updated: 2023/02/14 19:18:42 by anvannin         ###   ########.fr       */
+/*   Created: 2023/02/10 17:02:42 by cscelfo           #+#    #+#             */
+/*   Updated: 2023/02/20 18:02:41 by cscelfo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
+#ifndef FRACTOL_H
+# define FRACTOL_H
 
+# include <math.h>
 # include "libft/libft.h"
+# include "minilibx-linux/mlx.h"
+# include <stddef.h>
+# include <stdlib.h>
+# include <X11/keysym.h>
+# include <X11/X.h>
+
+# define WINDOW_WIDTH 1920
+# define WINDOW_HEIGHT 1080
+# define MLX_ERROR -1
+# define RED_PIXEL 0xFF0000
+# define GREEN_PIXEL 0xFF00
+
+typedef struct s_data
+{
+	void	*mlx_ptr;
+	void	*win_ptr;
+}	t_data;
+
+int	ft_close(int keycode, t_data *data);
+//int	ft_handle_nothing(void *data);
+int	ft_draw_pixels(t_data *data);
 
 #endif
