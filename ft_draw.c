@@ -32,19 +32,17 @@ int draw(t_data *data)
 	int i;
 	int j;
 
-	i = 0;
 	j = 0;
 	if (data->win_ptr == NULL)
 		return (1);
 	while(j < WINDOW_HEIGHT)
 	{
 		i = 0;
-		while(i < data->img.line_len)
+		while(i < data->img.line_len / 4)
 		{
-			if(j * i % 2 == 0)
-				my_pixel_put(&data->img, i, j, GREEN_PIXEL);
-			else
-				my_pixel_put(&data->img, i, j, RED_PIXEL);
+			if(pass((((float)i - 100) / 100) * 2, ((100 - (float)j) / 100) * 2) > 1)
+				my_pixel_put(&data->img, i, j, WHITE_PIXEL);
+			ft_printf("-%d-%d-\n", j, i);
 			i++;
 		}
 		j++;

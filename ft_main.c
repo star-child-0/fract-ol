@@ -34,8 +34,6 @@ int	main(void)
 //	mlx_hook(data.win_ptr, 2, 1L<<0, key_hook_handler(), &data);
 	mlx_key_hook(data.win_ptr, key_hook_handler, &data);
 	mlx_loop(data.mlx_ptr);
-	mlx_destroy_image(data.mlx_ptr, data.img.mlx_img);
-	mlx_destroy_display(data.mlx_ptr);
 	free(data.mlx_ptr);
 	return (0);
 }

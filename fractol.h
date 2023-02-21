@@ -23,8 +23,8 @@
 
 //# define WINDOW_WIDTH 1920
 //# define WINDOW_HEIGHT 1080
-# define WINDOW_WIDTH 200
-# define WINDOW_HEIGHT 200
+# define WINDOW_WIDTH 400
+# define WINDOW_HEIGHT 400
 # define MLX_ERROR -1
 # define WHITE_PIXEL 0xFFFFFF
 # define BLACK_PIXEL 0x000000
@@ -56,6 +56,7 @@ typedef struct s_coords
 
 int	key_hook_handler(int keycode, t_data *data);
 //int	ft_handle_nothing(void *data);
+int	pass(float x, float y);
 int	ft_draw_pixels(t_data *data);
 void	my_pixel_put(t_img *img, int x, int y, int color);
 int draw(t_data *data);
