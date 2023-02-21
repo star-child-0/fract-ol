@@ -22,8 +22,10 @@
 # include <X11/keysym.h>
 # include <X11/X.h>
 
-# define WINDOW_WIDTH 1920
-# define WINDOW_HEIGHT 1080
+//# define WINDOW_WIDTH 1920
+//# define WINDOW_HEIGHT 1080
+# define WINDOW_WIDTH 200
+# define WINDOW_HEIGHT 200
 # define MLX_ERROR -1
 # define WHITE_PIXEL 0xFFFFFF
 # define BLACK_PIXEL 0x000000
