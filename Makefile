@@ -1,4 +1,4 @@
-FILES = ft_draw.c ft_key_hooks.c ft_main.c \
+FILES = ft_draw.c ft_key_hooks.c ft_main.c passes.c \
 
 LIBFT = libft/libft.a
 

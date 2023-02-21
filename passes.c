@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 19:39:20 by anvannin          #+#    #+#             */
-/*   Updated: 2023/02/20 21:10:18 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/02/21 16:42:21 by cscelfo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 // this is to be removed
 #include <math.h>
+#include <stdio.h>
 
 int	pass(float x, float y)
 {
@@ -38,11 +39,12 @@ int	pass(float x, float y)
 	return (i);
 }
 
-// gcc passes.c -lm to test
-// int	main(void)
-// {
-// 	#include <stdio.h>
+int	main(void)
+{
 // 	printf("(-2, 1): %d steps\n", pass(-2, 1));
-// 	printf("(-1.5, 1): %d steps\n", pass(-1.5, 1));
+//	printf("(-1.5, 1): %d steps\n", pass(-1.5, 1));
 // 	printf("(-1, 1): %d steps\n", pass(-1, 1));
-// }
+//	printf("\n(0, 0.6357): %d steps\n", pass(0, 0.6357)); 8960 steps
+// 	printf("(0, 2): %d steps\n", pass(0, 2));
+ 	printf("\n(-0.5500, 0.4800): %d steps\n", pass(-0.5500, 0.4800));
+}
