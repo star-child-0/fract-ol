@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 17:02:42 by cscelfo           #+#    #+#             */
-/*   Updated: 2023/02/21 14:16:23 by cscelfo          ###   ########.fr       */
+/*   Updated: 2023/02/21 16:54:46 by cscelfo          ###   ########.fr       */
 /*   Updated: 2023/02/20 19:41:08 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -28,10 +28,8 @@
 # define WHITE_PIXEL 0xFFFFFF
 # define BLACK_PIXEL 0x000000
 # define RED_PIXEL 0xFF0000
-<<<<<<< HEAD
 # define GREEN_PIXEL 0xFF00
 # define BLUE_PIXEL 0x0000FF 
-=======
 # define GREEN_PIXEL 0x00FF00
 # define BLUE_PIXEL 0x0000FF
 
@@ -43,7 +41,6 @@ typedef struct s_img
 	int		line_len;
 	int		endian;
 }	t_img;
->>>>>>> main
 
 typedef struct s_data
 {
