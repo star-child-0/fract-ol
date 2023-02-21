@@ -6,7 +6,7 @@
 /*   By: cscelfo <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 16:49:57 by cscelfo           #+#    #+#             */
-/*   Updated: 2023/02/20 18:51:20 by cscelfo          ###   ########.fr       */
+/*   Updated: 2023/02/21 16:58:45 by cscelfo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,9 @@ int	main(void)
 	data.img.mlx_img = mlx_new_image(data.mlx_ptr, WINDOW_WIDTH, WINDOW_HEIGHT);
 	data.img.addr = mlx_get_data_addr(data.img.mlx_img, &data.img.bpp,
 			&data.img.line_len, &data.img.endian);
-//	mlx_loop_hook(data.mlx_ptr, &ft_handle_nothing, &data);
-<<<<<<< HEAD
-	mlx_loop_hook(data.mlx_ptr, &ft_draw_pixels, &data);
-	mlx_key_hook(data.win_ptr, &ft_close, &data);
-=======
-//	mlx_loop_hook(data.mlx_ptr, &ft_draw_pixels, &data);
+	mlx_key_hook(data.win_ptr, &key_hook_handler, &data);
 	mlx_loop_hook(data.mlx_ptr, &draw, &data);
-//	mlx_hook(data.win_ptr, 2, 1L<<0, key_hook_handler(), &data);
 	mlx_key_hook(data.win_ptr, key_hook_handler, &data);
->>>>>>> main
 	mlx_loop(data.mlx_ptr);
 	mlx_destroy_image(data.mlx_ptr, data.img.mlx_img);
 	mlx_destroy_display(data.mlx_ptr);

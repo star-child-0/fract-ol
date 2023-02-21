@@ -1,4 +1,4 @@
-FILES = ft_draw.c ft_key_hooks.c ft_main.c passes.c \
+FILES = ft_draw.c ft_key_hooks.c ft_main.c ft_mandelbrot_equation.c \
 
 LIBFT = libft/libft.a
 

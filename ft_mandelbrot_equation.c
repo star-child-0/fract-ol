@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 19:39:20 by anvannin          #+#    #+#             */
-/*   Updated: 2023/02/21 16:42:21 by cscelfo          ###   ########.fr       */
+/*   Updated: 2023/02/21 16:59:18 by cscelfo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	pass(float x, float y)
 	}
 	return (i);
 }
-
+/*
 int	main(void)
 {
 // 	printf("(-2, 1): %d steps\n", pass(-2, 1));
@@ -47,4 +47,4 @@ int	main(void)
 //	printf("\n(0, 0.6357): %d steps\n", pass(0, 0.6357)); 8960 steps
 // 	printf("(0, 2): %d steps\n", pass(0, 2));
  	printf("\n(-0.5500, 0.4800): %d steps\n", pass(-0.5500, 0.4800));
-}
+}*/
