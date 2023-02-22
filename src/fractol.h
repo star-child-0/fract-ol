@@ -6,10 +6,9 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 17:02:42 by cscelfo           #+#    #+#             */
-/*   Updated: 2023/02/22 18:27:06 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/02/22 18:55:30 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
@@ -63,7 +62,8 @@ typedef struct s_float_coords
 
 int		key_hook_handler(int keycode, t_data *data);
 void	my_pixel_put(t_img *img, int x, int y, int color);
-int		draw(t_data *data);
+void	draw(t_data *data);
+int		draw_handle(t_data *data);
 int		ft_pass(t_coords *coord);
 
 #endif

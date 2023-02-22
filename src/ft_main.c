@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 16:49:57 by cscelfo           #+#    #+#             */
-/*   Updated: 2023/02/22 18:22:23 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/02/22 18:56:22 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	main(void)
 	data.img.addr = mlx_get_data_addr(data.img.mlx_img, &data.img.bpp,
 			&data.img.line_len, &data.img.endian);
 	mlx_key_hook(data.win_ptr, &key_hook_handler, &data);
-	mlx_loop_hook(data.mlx_ptr, &draw, &data);
+	mlx_loop_hook(data.mlx_ptr, &draw_handle, &data);
 	mlx_loop(data.mlx_ptr);
 	mlx_destroy_image(data.mlx_ptr, data.img.mlx_img);
 	mlx_destroy_display(data.mlx_ptr);

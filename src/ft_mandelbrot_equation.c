@@ -6,13 +6,14 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 19:39:20 by anvannin          #+#    #+#             */
-/*   Updated: 2023/02/22 18:16:23 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/02/22 18:50:03 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-// Returns the number of iterations before a coordinate escapes the mandelbrot set
+// Returns the number of iterations before a coordinate escapes the mandelbrot
+// set
 int	ft_pass(t_coords *coord)
 {
 	int	i;
