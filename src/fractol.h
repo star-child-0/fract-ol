@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 17:02:42 by cscelfo           #+#    #+#             */
-/*   Updated: 2023/02/22 18:55:30 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/02/22 19:04:15 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,9 @@ typedef struct s_float_coords
 	float	x;
 	float	px;
 	float	cx;
-	float	zx;
 	float	y;
 	float	py;
 	float	cy;
-	float	zy;
 }	t_coords;
 
 int		key_hook_handler(int keycode, t_data *data);

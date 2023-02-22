@@ -6,12 +6,11 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 15:15:54 by cscelfo           #+#    #+#             */
-/*   Updated: 2023/02/22 18:54:02 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/02/22 18:59:29 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-#include <stdio.h>
 
 void	my_pixel_put(t_img *img, int x, int y, int color)
 {
