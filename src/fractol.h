@@ -6,17 +6,17 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 17:02:42 by cscelfo           #+#    #+#             */
-/*   Updated: 2023/02/22 17:37:37 by cscelfo          ###   ########.fr       */
-/*   Updated: 2023/02/20 19:41:08 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/02/22 18:27:06 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
 # include <math.h>
-# include "libft/libft.h"
-# include "minilibx-linux/mlx.h"
+# include "../libft/libft.h"
+# include "../minilibx-linux/mlx.h"
 # include <stddef.h>
 # include <stdlib.h>
 # include <X11/keysym.h>

@@ -1,2 +1,3 @@
 **/.o
-fractol
+src/fractol
+.vscode
