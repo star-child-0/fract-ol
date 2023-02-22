@@ -6,7 +6,7 @@
 /*   By: cscelfo <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 15:15:54 by cscelfo           #+#    #+#             */
-/*   Updated: 2023/02/22 17:44:07 by cscelfo          ###   ########.fr       */
+/*   Updated: 2023/02/22 18:12:09 by cscelfo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int draw(t_data *data)
 		coord.py = 0;
 		while (coord.py <= WINDOW_HEIGHT)
 		{
-			coord.x = ((coord.px - (WINDOW_WIDTH / 2)) / (WINDOW_WIDTH / 2)) * 2;
+			coord.x = ((coord.px - (WINDOW_HEIGHT / 2)) / (WINDOW_HEIGHT / 2)) * 2;
 			coord.y = (((WINDOW_HEIGHT / 2) - coord.py) / (WINDOW_HEIGHT / 2)) * 2;
 			iterations = ft_pass(&coord);
 			ft_blue(data, iterations, coord.px, coord.py);

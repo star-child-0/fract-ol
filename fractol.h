@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 17:02:42 by cscelfo           #+#    #+#             */
-/*   Updated: 2023/02/22 17:37:37 by cscelfo          ###   ########.fr       */
+/*   Updated: 2023/02/22 18:10:00 by cscelfo          ###   ########.fr       */
 /*   Updated: 2023/02/20 19:41:08 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -24,8 +24,8 @@
 
 //# define WINDOW_WIDTH 1920
 //# define WINDOW_HEIGHT 1080
-# define WINDOW_WIDTH 1000
-# define WINDOW_HEIGHT 1000
+# define WINDOW_WIDTH 500
+# define WINDOW_HEIGHT 800
 # define MLX_ERROR -1
 # define WHITE_PIXEL 0xFFFFFF
 # define BLACK_PIXEL 0x000000
