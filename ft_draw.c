@@ -40,9 +40,9 @@ int draw(t_data *data)
 		i = 0;
 		while(i < data->img.line_len / 4)
 		{
-			if(pass((((float)i - 100) / 100) * 2, ((100 - (float)j) / 100) * 2) > 1)
+			//if(pass((((float)i - 100) / 100) * 2, ((100 - (float)j) / 100) * 2) > 1)
 				my_pixel_put(&data->img, i, j, WHITE_PIXEL);
-			ft_printf("-%d-%d-\n", j, i);
+			//ft_printf("-%d-%d-\n", j, i);
 			i++;
 		}
 		j++;

@@ -21,6 +21,11 @@ int	key_hook_handler(int keycode, t_data *data)
 {
 	if (keycode == XK_Escape) //Press ESC to close the window
 		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
-	ft_printf("Keypress: %d\n", keycode);
+	//else if (keycode == XK_C)
+		//color_shift();
+	//else if (keycode == XK_Left)
+	//else if (keycode == XK_Up)
+	//else if (keycode == XK_Right)
+	//else if (keycode == XK_Down)
 	return (0);
 }
