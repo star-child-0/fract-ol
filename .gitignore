@@ -1,4 +1,5 @@
 libft/*.o
+libft/*.a
 src/*.o
 src/fractol
 .vscode
