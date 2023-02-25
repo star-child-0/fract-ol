@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 15:15:54 by cscelfo           #+#    #+#             */
-/*   Updated: 2023/02/25 17:10:40 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/02/25 18:25:03 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	draw(t_data *data)
 		{
 			coord.x = ((coord.px - (small_side / 2)) / (small_side / 2)) * 2;
 			coord.y = (((small_side / 2) - coord.py) / (small_side / 2)) * 2;
-			iterations = ft_pass(&coord);
+			iterations = ft_mandelbrot_pass(&coord);
 			ft_blue(data, iterations, coord.px, coord.py);
 			coord.py++;
 		}
