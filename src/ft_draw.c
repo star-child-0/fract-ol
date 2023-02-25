@@ -20,6 +20,12 @@ void	my_pixel_put(t_img *img, int x, int y, int color)
 	*(int *)pixel = color;
 }
 
+void	window_labels(t_data *data)
+{
+	mlx_string_put(data->mlx_ptr, data->win_ptr, 35, 35, 0xffffff, "Arrow keys to move around");
+	mlx_string_put(data->mlx_ptr, data->win_ptr, 35, 50, 0xffffff, "'C' to change the color range");
+}
+
 /* void color_shift(int x, int y)
 {
 
@@ -54,6 +60,7 @@ void	draw(t_data *data, int x, int y)
 	}
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img.mlx_img,
 		0, 0);
+	window_labels(data);
 }
 
 // Draw handler
