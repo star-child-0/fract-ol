@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 17:02:42 by cscelfo           #+#    #+#             */
-/*   Updated: 2023/02/25 17:11:03 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/02/25 18:25:03 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,6 @@ int		key_hook_handler(int keycode, t_data *data);
 void	my_pixel_put(t_img *img, int x, int y, int color);
 void	draw(t_data *data, int x, int y);
 int		draw_handle(t_data *data);
-int		ft_pass(t_coords *coord);
+int		ft_mandelbrot_pass(t_coords *coord);
 
 #endif
