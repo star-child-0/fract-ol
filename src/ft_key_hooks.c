@@ -15,11 +15,33 @@
 // Press ESC to close the window
 int	key_hook_handler(int keycode, t_data *data)
 {
+	static int x;
+	static int y;
+
+	mlx_destroy_image(data->mlx_ptr, data->img.mlx_img);
 	if (keycode == XK_Escape)
 	{
-		mlx_destroy_image(data->mlx_ptr, data->img.mlx_img);
+		mlx_loop_end(data->mlx_ptr);
 		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
 	}
-	ft_printf("Keypress: %d\n", keycode);
+	else if(keycode == XK_Up)
+		y -= 100;
+	else if(keycode == XK_Right)
+		x += 100;
+	else if(keycode == XK_Down)
+		y += 100;
+	else if(keycode == XK_Left)
+		x -= 100;
+	//else if(keycode == XK_C)
+		//color_shift(int x, int y);
+	draw(data, x, y);
+	return (0);
+}
+
+int	hook_close_handler(t_data *data)
+{
+	mlx_loop_end(data->mlx_ptr);
+	mlx_destroy_image(data->mlx_ptr, data->img.mlx_img);
+	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
 	return (0);
 }

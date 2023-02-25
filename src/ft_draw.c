@@ -20,24 +20,20 @@ void	my_pixel_put(t_img *img, int x, int y, int color)
 	*(int *)pixel = color;
 }
 
-void	ft_blue(t_data *data, int iterations, float px, float py)
+/* void color_shift(int x, int y)
 {
-	int			blue;
 
-	blue = 0x0000FF;
-	if (iterations < MAX_ITER)
-		my_pixel_put(&data->img, px, py, blue + iterations * 5);
-}
+} */
 
 // Draw the fractal
-void	draw(t_data *data)
+void	draw(t_data *data, int x, int y)
 {
+	t_coords	coord;
 	int			iterations;
 	int			small_side;
-	t_coords	coord;
+	int color = 0x0000ff;
 
-	coord.px = 0;
-	coord.py = 0;
+	data->img.mlx_img = mlx_new_image(data->mlx_ptr, WINDOW_WIDTH, WINDOW_HEIGHT);
 	iterations = 0;
 	small_side = WINDOW_HEIGHT;
 	if (WINDOW_WIDTH < WINDOW_HEIGHT)
@@ -47,23 +43,26 @@ void	draw(t_data *data)
 		coord.py = 0;
 		while (coord.py <= small_side)
 		{
-			coord.x = ((coord.px - (small_side / 2)) / (small_side / 2)) * 2;
-			coord.y = (((small_side / 2) - coord.py) / (small_side / 2)) * 2;
+			coord.x = (((coord.px + x) - (small_side / 2)) / (small_side / 2)) * 2;
+			coord.y = (((small_side / 2) - (coord.py + y)) / (small_side / 2)) * 2;
 			iterations = ft_pass(&coord);
-			ft_blue(data, iterations, coord.px, coord.py);
+			if (iterations < MAX_ITER)
+				my_pixel_put(&data->img, coord.px, coord.py, color + iterations * 5);
 			coord.py++;
 		}
 		coord.px++;
 	}
+	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img.mlx_img,
+		0, 0);
 }
 
 // Draw handler
 int	draw_handle(t_data *data)
 {
+	t_coords coord;
 	if (data->win_ptr == NULL)
 		return (1);
-	draw(data);
-	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img.mlx_img,
-		0, 0);
+	coord.px = 0;
+	draw(data, 0, 0);
 	return (0);
 }
