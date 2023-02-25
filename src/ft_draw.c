@@ -45,7 +45,7 @@ void	draw(t_data *data, int x, int y)
 		{
 			coord.x = (((coord.px + x) - (small_side / 2)) / (small_side / 2)) * 2;
 			coord.y = (((small_side / 2) - (coord.py + y)) / (small_side / 2)) * 2;
-			iterations = ft_pass(&coord);
+			iterations = ft_mandelbrot_pass(&coord);
 			if (iterations < MAX_ITER)
 				my_pixel_put(&data->img, coord.px, coord.py, color + iterations * 5);
 			coord.py++;
