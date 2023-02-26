@@ -39,7 +39,9 @@ void key_handler(int keycode, t_data *data)
 int	hook_handler(int keycode, t_data *data)
 {
 	mlx_destroy_image(data->mlx_ptr, data->img.mlx_img);
+	ft_printf("here");
 	key_handler(keycode, data);
+	mouse_hook_handler(keycode, data);
 	draw(data);
 	return (0);
 }
@@ -54,17 +56,14 @@ int	hook_close_handler(t_data *data)
 
 int mouse_hook_handler(int button, t_data *data)
 {
-	ft_printf("here");
-	(void)button;
-	//(void)data;
-	data->zoom /= 2;
-	/* if(button == 4)
+	if(button == 4)
 	{
-		data->color /= 2;
+		
+		data->zoom /= 2;
 	}
 	if(button == 5)
 	{
 		data->zoom *= 2;
-	} */
+	}
 	return(0);
 }

@@ -31,8 +31,8 @@ int	main(void)
 			&data.img.line_len, &data.img.endian);
 	mlx_destroy_image(data.mlx_ptr, data.img.mlx_img);
 	mlx_key_hook(data.win_ptr, &hook_handler, &data);
+	mlx_mouse_hook(data.win_ptr, &hook_handler, &data);
 	mlx_hook(data.win_ptr, 17, 1L<<17, &hook_close_handler, &data);
-	mlx_mouse_hook(data.win_ptr, &mouse_hook_handler, &data);
 	draw_handle(&data);
 	mlx_loop(data.mlx_ptr);
 	free(data.mlx_ptr);
