@@ -26,7 +26,7 @@
 # define WINDOW_WIDTH 1000
 # define WINDOW_HEIGHT 1000
 # define MLX_ERROR -1
-# define MAX_ITER 25
+# define MAX_ITER 10
 
 typedef struct s_img
 {

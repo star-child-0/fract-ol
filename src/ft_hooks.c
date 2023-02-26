@@ -31,7 +31,16 @@ void key_handler(int keycode, t_data *data)
 	else if(keycode == XK_c)
 		data->color += 0xf0A0f0;
 	else if(keycode == XK_x)
+	{
+		mlx_mouse_get_pos(data->mlx_ptr, data->win_ptr, &data->x, &data->y);
 		data->zoom /= 2;
+	}
+	else if(keycode == XK_z)
+	{
+		mlx_mouse_get_pos(data->mlx_ptr, data->win_ptr, &data->x, &data->y);
+		data->zoom *= 2;
+	}
+	//zoom stupido
 }
 
 
@@ -58,7 +67,7 @@ int mouse_hook_handler(int button, t_data *data)
 {
 	if(button == 4)
 	{
-		
+		mlx_mouse_get_pos(data->mlx_ptr, data->win_ptr, &data->x, &data->y);
 		data->zoom /= 2;
 	}
 	if(button == 5)
