@@ -66,7 +66,7 @@ int	pass(float x, float y);
 int	ft_draw_pixels(t_data *data);
 int		key_hook_handler(int keycode, t_data *data);
 void	my_pixel_put(t_img *img, int x, int y, int color);
-void	draw(t_data *data, int x, int y);
+void	draw(t_data *data, int x, int y, int color);
 int		draw_handle(t_data *data);
 int		ft_mandelbrot_pass(t_coords *coord);
 

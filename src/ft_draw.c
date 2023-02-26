@@ -32,12 +32,11 @@ void	window_labels(t_data *data)
 } */
 
 // Draw the fractal
-void	draw(t_data *data, int x, int y)
+void	draw(t_data *data, int x, int y, int color)
 {
 	t_coords	coord;
 	int			iterations;
 	int			small_side;
-	int color = 0x0000ff;
 
 	data->img.mlx_img = mlx_new_image(data->mlx_ptr, WINDOW_WIDTH, WINDOW_HEIGHT);
 	iterations = 0;
@@ -70,6 +69,6 @@ int	draw_handle(t_data *data)
 	if (data->win_ptr == NULL)
 		return (1);
 	coord.px = 0;
-	draw(data, 0, 0);
+	draw(data, 0, 0, 0x0000ff);
 	return (0);
 }
