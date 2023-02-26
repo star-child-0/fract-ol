@@ -23,8 +23,10 @@ int	ft_mandelbrot_pass(t_coords *coord)
 	if (pow(coord->x, 2) + pow(coord->y, 2) > 4)
 		return (1);
 	i = 2;
-	coord->cx = pow(coord->x, 2) - pow(coord->y, 2) + coord->x;
-	coord->cy = (2 * coord->x * coord->y) + coord->y;
+	//coord->cx = pow(coord->x, 2) - pow(coord->y, 2) + coord->x;
+	//coord->cy = (2 * coord->x * coord->y) + coord->y;
+	coord->cx = 0;
+	coord->cy = 0;
 	while (sqrt(pow(coord->cx, 2) + pow(coord->cy, 2)) < 2 && ++i
 		&& i <= MAX_ITER)
 	{

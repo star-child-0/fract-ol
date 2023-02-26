@@ -26,13 +26,8 @@ void	window_labels(t_data *data)
 	mlx_string_put(data->mlx_ptr, data->win_ptr, 35, 50, 0xffffff, "'C' to change the color range");
 }
 
-/* void color_shift(int x, int y)
-{
-
-} */
-
 // Draw the fractal
-void	draw(t_data *data, int x, int y, int color)
+void	draw(t_data *data)
 {
 	t_coords	coord;
 	int			iterations;
@@ -48,11 +43,11 @@ void	draw(t_data *data, int x, int y, int color)
 		coord.py = 0;
 		while (coord.py <= small_side)
 		{
-			coord.x = (((coord.px + x) - (small_side / 2)) / (small_side / 2)) * 2;
-			coord.y = (((small_side / 2) - (coord.py + y)) / (small_side / 2)) * 2;
+			coord.x = (((coord.px + data->x) - (small_side / data->zoom)) / (small_side / data->zoom)) * data->zoom;
+			coord.y = (((small_side / data->zoom) - (coord.py + data->y)) / (small_side / data->zoom)) * data->zoom;
 			iterations = ft_mandelbrot_pass(&coord);
 			if (iterations < MAX_ITER)
-				my_pixel_put(&data->img, coord.px, coord.py, color + iterations * 5);
+				my_pixel_put(&data->img, coord.px, coord.py, data->color + iterations * 5);
 			coord.py++;
 		}
 		coord.px++;
@@ -69,6 +64,10 @@ int	draw_handle(t_data *data)
 	if (data->win_ptr == NULL)
 		return (1);
 	coord.px = 0;
-	draw(data, 0, 0, 0x0000ff);
+	data->x = 0;
+	data->y = 0;
+	data->zoom = 2;
+	data->color = 0x0000ff;
+	draw(data);
 	return (0);
 }
