@@ -3,84 +3,67 @@
 /*                                                        :::      ::::::::   */
 /*   ft_hooks.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cscelfo <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/11 17:09:52 by cscelfo           #+#    #+#             */
-/*   Updated: 2023/02/27 17:30:47 by cscelfo          ###   ########.fr       */
+/*   Created: 2023/02/27 17:56:52 by cscelfo           #+#    #+#             */
+/*   Updated: 2023/02/27 17:56:52 by cscelfo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-// Press ESC to close the window
-<<<<<<< HEAD
-void	key_handler(int keycode, t_data *data)
-=======
-void key_hook_handler(int keycode, t_data *data)
->>>>>>> origin/gmattei
+
+// Returns the number of iterations before a coordinate escapes the
+// mandelbrot set
+int	ft_mandelbrot_pass(t_coords *coord)
 {
-	if (keycode == XK_Escape)
+	int		i;
+	float	zx;
+	float	zy;
+
+	if (pow(coord->x, 2) + pow(coord->y, 2) > 4)
+		return (1);
+	i = 2;
+	//coord->cx = pow(coord->x, 2) - pow(coord->y, 2) + coord->x;
+	//coord->cy = (2 * coord->x * coord->y) + coord->y;
+	coord->cx = 0;
+	coord->cy = 0;
+	while (sqrt(pow(coord->cx, 2) + pow(coord->cy, 2)) < 2 && ++i
+		&& i <= MAX_ITER)
 	{
-		mlx_loop_end(data->mlx_ptr);
-		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+		zx = pow(coord->cx, 2) - pow(coord->cy, 2) + coord->x;
+		zy = (2 * coord->cx * coord->cy) + coord->y;
+		coord->cx = zx;
+		coord->cy = zy;
 	}
-	else if (keycode == XK_Up)
-		data->y -= 100;
-	else if (keycode == XK_Right)
-		data->x += 100;
-	else if (keycode == XK_Down)
-		data->y += 100;
-	else if (keycode == XK_Left)
-		data->x -= 100;
-	else if (keycode == XK_c)
-		data->color += 0xf0A0f0;
-	else if (keycode == XK_x)
-	{
-		//mlx_mouse_get_pos(data->mlx_ptr, data->win_ptr, &data->x, &data->y);
-		data->zoom /= 1.5;
-	}
-	else if (keycode == XK_z)
-	{
-		//mlx_mouse_get_pos(data->mlx_ptr, data->win_ptr, &data->x, &data->y);
-		data->zoom *= 1.5;
-	}
+	return (i);
 }
 
-int	hook_handler(int keycode, t_data *data)
+void	ft_julia(t_coords *coord)
 {
-	key_hook_handler(keycode, data);
-	mouse_hook_handler(keycode, data);
-	mlx_destroy_image(data->mlx_ptr, data->img.mlx_img);
-	draw(data);
-	return (0);
-}
+	int	r;
+	int	zx;
+	int	tmpzx;
+	int	zy;
+	int	iter;
 
-int	hook_close_handler(t_data *data)
-{
-	mlx_loop_end(data->mlx_ptr);
-	mlx_destroy_image(data->mlx_ptr, data->img.mlx_img);
-	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
-	return (0);
-}
-
-<<<<<<< HEAD
-int	mouse_hook_handler(int button, t_data *data)
-=======
-void mouse_hook_handler(int button, t_data *data)
->>>>>>> origin/gmattei
-{
-	if (button == 4)
+	iter = 0;
+	r = sqrt(INT_MAX); // un numero veramente grande (non so se è giusto)
+	while (coord->px < WINDOW_WIDTH)
 	{
-		mlx_mouse_get_pos(data->mlx_ptr, data->win_ptr, &data->x, &data->y);
-		data->zoom /= 2;
+		coord->py = 0;
+		while (coord->py < WINDOW_HEIGHT)
+		{
+			zx = pow(coord->cx, 2) - pow(coord->cy, 2) + coord->x;
+			zy = (2 * coord->x * coord->y) + coord->y;
+			while (pow(zx, 2) + pow(zy, 2) < pow(r, 2) && iter < MAX_ITER)
+			{
+				tmpzx = pow(zx, 2) - pow(zy, 2) + coord->x;
+				zy = (2 * zx * zy) + coord->y;
+				zx = tmpzx;
+				iter++;
+			}
+			coord->py++;
+		}
+		coord->px++;
 	}
-	if (button == 5)
-	{
-		mlx_mouse_get_pos(data->mlx_ptr, data->win_ptr, &data->x, &data->y);
-		data->zoom *= 2;
-	}
-<<<<<<< HEAD
-	return (0);
 }
-=======
-}
->>>>>>> origin/gmattei
