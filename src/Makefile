@@ -1,6 +1,6 @@
-FILES = ft_draw.c ft_key_hooks.c ft_main.c ft_mandelbrot_equation.c \
+FILES = ft_draw.c ft_hooks.c ft_main.c ft_mandelbrot_equation.c\
 
-LIBFT = libft/libft.a
+LIBFT = ../libft/libft.a
 
 OBJECTS = $(FILES:.c=.o)
 
@@ -15,19 +15,19 @@ NAME = fractol
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
-	make -C ./libft
-	make all -C ./minilibx-linux
-	$(CC) $(CFLAGS) $(OBJECTS) -o $(NAME) -L minilibx-linux -lmlx -lXext -lX11 -lm $(LIBFT)
+	make -C ../libft
+	make all -C ../minilibx-linux
+	$(CC) $(CFLAGS) $(OBJECTS) -o $(NAME) -L ../minilibx-linux -lmlx -lXext -lX11 -lm $(LIBFT)
 	clear
 
 clean:
-	make clean -C ./libft
-	make clean -C ./minilibx-linux
+	make clean -C ../libft
+	make clean -C ../minilibx-linux
 	$(RM) $(OBJECTS)
 	clear
 
 fclean: clean
-	make fclean -C ./libft
+	make fclean -C ../libft
 	$(RM) $(NAME) $(OBJECTS)
 	clear
 

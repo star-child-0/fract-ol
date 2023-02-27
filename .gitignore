@@ -1,2 +1,6 @@
-**/.o
-fractol
+**.o
+**.a
+**.out
+minilibx-linux
+src/fractol
+.vscode
