@@ -12,7 +12,7 @@
 
 #include "fractol.h"
 
-void	my_pixel_put(t_img_fra *img, int x, int y, int color)
+void	my_pixel_put(t_img *img, int x, int y, int color)
 {
 	char	*pixel;
 
