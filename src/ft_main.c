@@ -6,11 +6,15 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 16:49:57 by cscelfo           #+#    #+#             */
+<<<<<<< HEAD
 <<<<<<< HEAD:ft_main.c
 /*   Updated: 2023/02/22 18:41:33 by cscelfo          ###   ########.fr       */
 =======
 /*   Updated: 2023/02/25 17:12:01 by anvannin         ###   ########.fr       */
 >>>>>>> main:src/ft_main.c
+=======
+/*   Updated: 2023/02/27 17:27:08 by cscelfo          ###   ########.fr       */
+>>>>>>> main
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +46,7 @@ int	main(void)
 	mlx_destroy_image(data.mlx_ptr, data.img.mlx_img);
 	mlx_key_hook(data.win_ptr, &hook_handler, &data);
 	mlx_mouse_hook(data.win_ptr, &hook_handler, &data);
-	mlx_hook(data.win_ptr, 17, 1L<<17, &hook_close_handler, &data);
+	mlx_hook(data.win_ptr, 17, 1L << 17, &hook_close_handler, &data);
 	draw_handle(&data);
 	mlx_loop(data.mlx_ptr);
 	free(data.mlx_ptr);
