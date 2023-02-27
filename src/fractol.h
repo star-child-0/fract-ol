@@ -6,7 +6,7 @@
 /*   By: cscelfo <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 18:01:25 by cscelfo           #+#    #+#             */
-/*   Updated: 2023/02/27 18:01:33 by cscelfo          ###   ########.fr       */
+/*   Updated: 2023/02/27 18:06:00 by cscelfo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@
 
 //# define WINDOW_WIDTH 1920
 //# define WINDOW_HEIGHT 1080
-# define WINDOW_WIDTH 500
-# define WINDOW_HEIGHT 800
+# define WINDOW_WIDTH 600
+# define WINDOW_HEIGHT 600
 # define MLX_ERROR -1
 # define MAX_ITER 30
 
