@@ -12,7 +12,11 @@
 
 #include "fractol.h"
 // Press ESC to close the window
+<<<<<<< HEAD
 void	key_handler(int keycode, t_data *data)
+=======
+void key_hook_handler(int keycode, t_data *data)
+>>>>>>> origin/gmattei
 {
 	if (keycode == XK_Escape)
 	{
@@ -31,22 +35,21 @@ void	key_handler(int keycode, t_data *data)
 		data->color += 0xf0A0f0;
 	else if (keycode == XK_x)
 	{
-		mlx_mouse_get_pos(data->mlx_ptr, data->win_ptr, &data->x, &data->y);
-		data->zoom /= 2;
+		//mlx_mouse_get_pos(data->mlx_ptr, data->win_ptr, &data->x, &data->y);
+		data->zoom /= 1.5;
 	}
 	else if (keycode == XK_z)
 	{
-		mlx_mouse_get_pos(data->mlx_ptr, data->win_ptr, &data->x, &data->y);
-		data->zoom *= 2;
+		//mlx_mouse_get_pos(data->mlx_ptr, data->win_ptr, &data->x, &data->y);
+		data->zoom *= 1.5;
 	}
 }
 
 int	hook_handler(int keycode, t_data *data)
 {
-	mlx_destroy_image(data->mlx_ptr, data->img.mlx_img);
-	ft_printf("here");
-	key_handler(keycode, data);
+	key_hook_handler(keycode, data);
 	mouse_hook_handler(keycode, data);
+	mlx_destroy_image(data->mlx_ptr, data->img.mlx_img);
 	draw(data);
 	return (0);
 }
@@ -59,7 +62,11 @@ int	hook_close_handler(t_data *data)
 	return (0);
 }
 
+<<<<<<< HEAD
 int	mouse_hook_handler(int button, t_data *data)
+=======
+void mouse_hook_handler(int button, t_data *data)
+>>>>>>> origin/gmattei
 {
 	if (button == 4)
 	{
@@ -68,7 +75,12 @@ int	mouse_hook_handler(int button, t_data *data)
 	}
 	if (button == 5)
 	{
+		mlx_mouse_get_pos(data->mlx_ptr, data->win_ptr, &data->x, &data->y);
 		data->zoom *= 2;
 	}
+<<<<<<< HEAD
 	return (0);
 }
+=======
+}
+>>>>>>> origin/gmattei
