@@ -27,8 +27,8 @@ int	ft_mandelbrot_pass(t_coords *coord)
 	//coord->cy = (2 * coord->x * coord->y) + coord->y;
 	coord->cx = 0;
 	coord->cy = 0;
-	while (sqrt(pow(coord->cx, 2) + pow(coord->cy, 2)) < 2 && ++i
-		&& i <= MAX_ITER)
+	while (pow(coord->cx, 2) + pow(coord->cy, 2) < 4 && i < MAX_ITER
+	&& ++i)
 	{
 		zx = pow(coord->cx, 2) - pow(coord->cy, 2) + coord->x;
 		zy = (2 * coord->cx * coord->cy) + coord->y;
