@@ -30,7 +30,7 @@
 # define WINDOW_WIDTH 1080
 # define WINDOW_HEIGHT 1080
 # define MLX_ERROR -1
-# define MAX_ITER 50
+# define MAX_ITER 200
 
 typedef struct s_img
 {
@@ -45,7 +45,7 @@ typedef struct s_data
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
-	t_img	*img;
+	t_img	img;
 	int add_px;
 	int add_py;
 	int color;
