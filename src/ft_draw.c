@@ -39,7 +39,7 @@ void	draw(t_data *data)
 	t_coords	coord;
 	int			iterations;
 	int			small_side;
-	//data->img.mlx_img = mlx_new_image(data->mlx_ptr, WINDOW_WIDTH, WINDOW_HEIGHT);
+	data->img.mlx_img = mlx_new_image(data->mlx_ptr, WINDOW_WIDTH, WINDOW_HEIGHT);
 	iterations = 0;
 	small_side = WINDOW_HEIGHT;
 	if (WINDOW_WIDTH < WINDOW_HEIGHT)
@@ -53,14 +53,14 @@ void	draw(t_data *data)
 			coord.y = (((small_side / data->zoom) - (coord.py + data->add_py)) / (small_side / data->zoom)) * data->zoom;
 			iterations = ft_mandelbrot_pass(&coord);
 			if (iterations < MAX_ITER)
-				my_pixel_put(data->img, coord.px, coord.py,
+				my_pixel_put(&data->img, coord.px, coord.py,
 					data->color + pow(iterations, 5.5));
 			coord.py++;
 		}
 		coord.px++;
 	}
 	//ft_printf("\n\npx: %d, py: %d, coord->x: %d, coord->y: %d, data->x: %d, data->y:%d\n\n", coord.px, coord.py, coord.x, coord.y, data->add_px, data->add_py);
-	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img->mlx_img,
+	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img.mlx_img,
 		0, 0);
 	window_labels(data);
 }
