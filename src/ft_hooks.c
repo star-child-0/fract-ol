@@ -27,7 +27,7 @@ int key_hook_handler(int keycode, t_data *data)
 		data->add_py += 100;
 	else if(keycode == XK_Left)
 		data->add_px -= 100;
-	else if(keycode == XK_c)//color shift
+	else if(keycode == XK_c)
 		data->color += 0xf0A0f0;
 	else if(keycode == XK_x)//zoom in base
 		data->zoom /= 1.2;
@@ -46,7 +46,7 @@ int	hook_handler(int keycode, t_data *data)
 {
 	if (!key_hook_handler(keycode, data))
 		return (0);
-	//mlx_destroy_image(data->mlx_ptr, data->img.mlx_img);
+	mlx_destroy_image(data->mlx_ptr, data->img.mlx_img);
 	draw(data);
 	return (1);
 }
@@ -54,7 +54,7 @@ int	hook_handler(int keycode, t_data *data)
 int	hook_close_handler(t_data *data)
 {
 	mlx_loop_end(data->mlx_ptr);
-	mlx_destroy_image(data->mlx_ptr, data->img->mlx_img);
+	mlx_destroy_image(data->mlx_ptr, data->img.mlx_img);
 	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
 	return (0);
 }
