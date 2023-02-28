@@ -53,7 +53,7 @@ void	draw(t_data *data)
 			coord.y = (((small_side / data->zoom) - (coord.py + data->add_py)) / (small_side / data->zoom)) * data->zoom;
 			iterations = ft_mandelbrot_pass(&coord);
 			if (iterations < MAX_ITER)
-				my_pixel_put(&data->img, coord.px, coord.py,
+				my_pixel_put(data->img, coord.px, coord.py,
 					data->color + pow(iterations, 5.5));
 			coord.py++;
 		}
