@@ -54,7 +54,7 @@ void	draw(t_data *data)
 			iterations = ft_mandelbrot_pass(&coord);
 			if (iterations < MAX_ITER)
 				my_pixel_put(&data->img, coord.px, coord.py,
-					data->color + iterations * 5);
+					data->color + pow(iterations, 5.5));
 			coord.py++;
 		}
 		coord.px++;
@@ -76,7 +76,7 @@ int	draw_handle(t_data *data)
 	data->add_px = 0;
 	data->add_py = 0;
 	data->zoom = 2;
-	data->color = 0x0000ff;
+	data->color = 0x808080;
 	draw(data);
 	return (0);
 }
