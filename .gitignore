@@ -2,5 +2,6 @@
 **.a
 **.out
 minilibx-linux
-src/fractol
+fractol
+fract-ol
 .vscode
