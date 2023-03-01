@@ -26,7 +26,7 @@ int	main(int argc, char **argv)
 		//draw
 		draw_handler(data);
 		hooks_init(data);
-		end_data(data);
+		end_fractal(data);
 	}
 	return (0);
 }

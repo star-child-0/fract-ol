@@ -22,8 +22,8 @@
 # include <X11/keysym.h>
 # include <X11/X.h>
 
-# define WIN_WIDTH 800
-# define WIN_HEIGHT 800
+# define WIN_WIDTH 1000
+# define WIN_HEIGHT 1000
 # define MAX_ITER 250
 
 typedef struct s_coords
@@ -53,7 +53,6 @@ typedef struct s_data
 	void	*win_ptr;
 	//int add_px;
 	//int add_py;
-	int color;
 	float zoom;
 	char *fractal;
 	t_img	img;
@@ -68,13 +67,13 @@ int		window_init(t_data *data);
 /*Hooks*/
 int		hook_handler(int keycode, t_data *data);
 int		key_handler(int keycode, t_data *data);
-int		mouse_handler(int keycode);
+int		mouse_handler(int keycode, t_data *data);
 /*Draw*/
 void	draw_handler(t_data *data);
 int		equation(t_data *data);
 /*Errors*/
 int		error_msg(void);
 /*End*/
-int	end_data(t_data *data);
+int		end_fractal(t_data *data);
 
 #endif

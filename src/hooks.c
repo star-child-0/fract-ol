@@ -14,18 +14,23 @@
 
 int hook_handler(int keycode, t_data *data)
 {
-    if(mouse_handler(keycode) || key_handler(keycode, data))
+    if(mouse_handler(keycode, data) || key_handler(keycode, data))
+    {
+        mlx_clear_window(data->mlx_ptr, data->win_ptr);
+        mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
+                data->img.mlx_img, 0, 0);
+    }
+    else
         return(0);
-    //draw
     return(1);
 }
 
-int mouse_handler(int keycode)
+int mouse_handler(int keycode, t_data *data)
 {
     if(keycode == 4)//scroll up
-        ft_printf("scroll up");
+        data->zoom /= 1.1;
     else if(keycode == 5)//scroll down
-        ft_printf("scroll down");
+        data->zoom *= 1.1;
     else
         return(0);
     return(1);
@@ -35,7 +40,7 @@ int key_handler(int keycode, t_data *data)
 {
     if(keycode == XK_Escape)
     {
-        end_data(data);
+        end_fractal(data);
         return(0);
     }
     else if(keycode == XK_Up)
