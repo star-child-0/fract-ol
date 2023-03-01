@@ -30,15 +30,30 @@ int	window_init(t_data *data)
 			WIN_WIDTH, WIN_HEIGHT, "fract-ol");
 	if (!(data->win_ptr))
 		ft_printf("Error\n");
+	data->img.mlx_img = mlx_new_image(data->mlx_ptr, WIN_WIDTH, WIN_HEIGHT);
+	if (!(data->img.mlx_img))
+		ft_printf("Error\n");
 	return (0);
 }
 
 int end_data(t_data *data)
 {
+	mlx_destroy_image(data->mlx_ptr, data->img.mlx_img);
+	data->img.mlx_img = NULL;
 	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
 	data->win_ptr = NULL;
 	mlx_destroy_display(data->mlx_ptr);
 	data->mlx_ptr = NULL;
 	free(data->mlx_ptr);
+	free(data->mlx_ptr);
 	return(0);
+}
+
+void draw_handler(t_data *data)
+{
+	mlx_clear_window(data->mlx_ptr, data->win_ptr);
+	data->zoom = MAX_ITER;
+	equation(data);
+	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
+			data->img.mlx_img, 0, 0);
 }

@@ -14,7 +14,6 @@
 
 int	main(int argc, char **argv)
 {
-	printf("|---|\n");
 	t_data	*data;
 
 	if (!valid_args(argc, argv))
@@ -22,8 +21,10 @@ int	main(int argc, char **argv)
 	else
 	{
 		data = (t_data *)malloc(sizeof(t_data));
+		data->fractal = argv[1];
 		window_init(data);
 		//draw
+		draw_handler(data);
 		hooks_init(data);
 		end_data(data);
 	}
