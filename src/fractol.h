@@ -25,11 +25,17 @@
 # define WIDTH 800
 # define HEIGHT 800
 
-typedef struct s_fractal
+typedef struct s_img
+{
+	
+}	t_img;
+
+typedef struct s_data
 {
 	void	*mlx;
 	void	*window;
-}	t_fractal;
+
+}	t_data;
 
 int		valid_args(int argc, char **argv);
 int		hooks_init(t_fractal *fractal);
