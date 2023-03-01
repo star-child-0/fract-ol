@@ -58,8 +58,8 @@ int		valid_args(int argc, char **argv);
 int		hooks_init(t_fractal *fractal);
 int		window_init(t_fractal *fractal);
 /*Hooks*/
-int		hook_handler(int keycode);
-int		key_handler(int keycode);
+int		hook_handler(int keycode, t_fractal *fractal);
+int		key_handler(int keycode, t_fractal *fractal);
 int		mouse_handler(int keycode);
 /*Errors*/
 int		error_msg(void);
