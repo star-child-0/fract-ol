@@ -23,9 +23,9 @@ int hook_handler(int keycode, t_fractal *fractal)
 int mouse_handler(int keycode)
 {
     if(keycode == 4)//scroll up
-        printf("scroll up");
+        printf("scroll up\n");
     else if(keycode == 5)//scroll down
-        printf("scroll down");
+        printf("scroll down\n");
     else
         return(0);
     return(1);

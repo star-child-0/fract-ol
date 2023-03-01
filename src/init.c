@@ -14,9 +14,9 @@
 
 int	hooks_init(t_fractal *fractal)
 {
-	//mlx_key_hook(fractal->win_ptr, &hook_handler, &fractal);
-	//mlx_mouse_hook(fractal->win_ptr, &hook_handler, &fractal);
-	//mlx_hook(fractal->win_ptr, 17, 1L<<17, (&end_fractal), &fractal);
+	mlx_key_hook(fractal->win_ptr, &hook_handler, &fractal);
+	mlx_mouse_hook(fractal->win_ptr, &mouse_handler, &fractal);
+	mlx_hook(fractal->win_ptr, 17, 1L<<17, (&end_fractal), &fractal);
 	mlx_loop(fractal->mlx_ptr);
 	return (0);
 }

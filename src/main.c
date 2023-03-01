@@ -14,7 +14,7 @@
 
 int	main(int argc, char **argv)
 {
-	printf("scroll up");
+	printf("|---|\n");
 	t_fractal	*fractal;
 
 	if (!valid_args(argc, argv))
