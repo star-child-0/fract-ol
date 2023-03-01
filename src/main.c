@@ -16,14 +16,14 @@ int	main(int argc, char **argv)
 {
 	t_fractal	*fractal;
 
+	fractal = NULL;
 	if (!valid_args(argc, argv))
 		error_msg();
 	else
 	{
-		fractal = (t_fractal *)malloc(sizeof(t_fractal));
 		window_init(fractal);
 		hooks_init(fractal);
-		free(fractal);
+		end_fractal(fractal);
 	}
 	return (0);
 }

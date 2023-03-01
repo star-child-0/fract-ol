@@ -24,22 +24,38 @@
 
 # define WIDTH 800
 # define HEIGHT 800
+# define MAX_ITER 250
+
+typedef struct s_float_coords
+{
+
+}	t_coords;
 
 typedef struct s_img
 {
-	
+	void	*mlx_img;
+	char	*addr;
+	int		bpp;
+	int		line_len;
+	int		endian;
 }	t_img;
 
-typedef struct s_data
+typedef struct s_fractal
 {
-	void	*mlx;
-	void	*window;
-
-}	t_data;
+	void	*mlx_ptr;
+	void	*win_ptr;
+	t_img	img;
+	t_coords coord;
+	//int add_px;
+	//int add_py;
+	//int color;
+	//float zoom;
+}	t_fractal;
 
 int		valid_args(int argc, char **argv);
 int		hooks_init(t_fractal *fractal);
 int		window_init(t_fractal *fractal);
 int		error_msg(void);
+void	end_fractal(t_fractal *fractal);
 
 #endif

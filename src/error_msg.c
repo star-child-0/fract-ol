@@ -14,9 +14,9 @@
 
 int	error_msg(void)
 {
-	ft_printf("mandelbrot/burningship: ./fractol fractal\n");
+	ft_printf("mandelbrot/burningship: ./fractol fractal\n\n");
 	ft_printf("julia: ./fractol julia x y coordinates (x and y");
-	ft_printf("being complex numbers between -2.000 and 2.000)\n");
-	ft_printf("Available fractals: mandelbrot, julia, burningship\n");
+	ft_printf(" being complex numbers between -2.000 and 2.000)\n\n");
+	ft_printf("Available fractals: mandelbrot, julia, burningship\n\n");
 	return (0);
 }
