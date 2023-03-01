@@ -1,4 +1,4 @@
-FILES = main.c valid_args.c init.c error_msg.c hooks.c\
+FILES = main.c valid_args.c init.c error_msg.c hooks.c equation.c\
 
 LIBFT = libft/libft.a
 

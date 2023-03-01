@@ -15,17 +15,17 @@
 int	main(int argc, char **argv)
 {
 	printf("|---|\n");
-	t_fractal	*fractal;
+	t_data	*data;
 
 	if (!valid_args(argc, argv))
 		error_msg();
 	else
 	{
-		fractal = (t_fractal *)malloc(sizeof(t_fractal));
-		window_init(fractal);
+		data = (t_data *)malloc(sizeof(t_data));
+		window_init(data);
 		//draw
-		hooks_init(fractal);
-		end_fractal(fractal);
+		hooks_init(data);
+		end_data(data);
 	}
 	return (0);
 }

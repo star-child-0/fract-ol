@@ -12,9 +12,9 @@
 
 #include "fractol.h"
 
-int hook_handler(int keycode, t_fractal *fractal)
+int hook_handler(int keycode, t_data *data)
 {
-    if(!key_handler(keycode, fractal))
+    if(mouse_handler(keycode) || key_handler(keycode, data))
         return(0);
     //draw
     return(1);
@@ -23,32 +23,31 @@ int hook_handler(int keycode, t_fractal *fractal)
 int mouse_handler(int keycode)
 {
     if(keycode == 4)//scroll up
-        printf("scroll up\n");
+        ft_printf("scroll up");
     else if(keycode == 5)//scroll down
-        printf("scroll down\n");
+        ft_printf("scroll down");
     else
         return(0);
     return(1);
 }
 
-int key_handler(int keycode, t_fractal *fractal)
+int key_handler(int keycode, t_data *data)
 {
     if(keycode == XK_Escape)
     {
-        printf("Escape");
-        end_fractal(fractal);
+        end_data(data);
         return(0);
     }
     else if(keycode == XK_Up)
-        printf("Up");
+        ft_printf("Up");
     else if(keycode == XK_Right)
-        printf("Right");
+        ft_printf("Right");
     else if(keycode == XK_Down)
-        printf("Down");
+        ft_printf("Down");
     else if(keycode == XK_Left)
-        printf("Left");
+        ft_printf("Left");
     else if(keycode == XK_c) //color shift
-        printf("Color Shift");
+        ft_printf("Color Shift");
     else
         return(0);
     return(1);

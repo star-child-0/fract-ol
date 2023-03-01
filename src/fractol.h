@@ -22,13 +22,20 @@
 # include <X11/keysym.h>
 # include <X11/X.h>
 
-# define WIDTH 800
-# define HEIGHT 800
+# define WIN_WIDTH 800
+# define WIN_HEIGHT 800
 # define MAX_ITER 250
 
-typedef struct s_float_coords
+typedef struct s_coords
 {
-
+	float x;
+	float y;
+	float cr;
+	float ci;
+	float zr;
+	float zi;
+	float tmp;
+	int iter;
 }	t_coords;
 
 typedef struct s_img
@@ -40,7 +47,7 @@ typedef struct s_img
 	int		endian;
 }	t_img;
 
-typedef struct s_fractal
+typedef struct s_data
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
@@ -49,21 +56,21 @@ typedef struct s_fractal
 	//int add_px;
 	//int add_py;
 	//int color;
-	//float zoom;
-}	t_fractal;
+	float zoom;
+}	t_data;
 
 /*Args*/
 int		valid_args(int argc, char **argv);
 /*Init*/
-int		hooks_init(t_fractal *fractal);
-int		window_init(t_fractal *fractal);
+int		hooks_init(t_data *data);
+int		window_init(t_data *data);
 /*Hooks*/
-int		hook_handler(int keycode, t_fractal *fractal);
-int		key_handler(int keycode, t_fractal *fractal);
+int		hook_handler(int keycode, t_data *data);
+int		key_handler(int keycode, t_data *data);
 int		mouse_handler(int keycode);
 /*Errors*/
 int		error_msg(void);
 /*End*/
-int	end_fractal(t_fractal *fractal);
+int	end_data(t_data *data);
 
 #endif
