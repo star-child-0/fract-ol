@@ -14,6 +14,9 @@
 
 int	hooks_init(t_fractal *fractal)
 {
+	mlx_key_hook(fractal->win_ptr, (&hook_handler), &fractal);
+	mlx_mouse_hook(fractal->win_ptr, (&hook_handler), &fractal);
+	mlx_hook(fractal->win_ptr, 17, 1L<<17, (&end_fractal), &fractal);
 	mlx_loop(fractal->mlx_ptr);
 	return (0);
 }
@@ -21,7 +24,6 @@ int	hooks_init(t_fractal *fractal)
 int	window_init(t_fractal *fractal)
 {
 	fractal->mlx_ptr = mlx_init();
-	ft_printf("|---|\n");
 	if (!(fractal->mlx_ptr))
 		ft_printf("Error\n");
 	fractal->win_ptr = mlx_new_window(fractal->mlx_ptr,
@@ -31,10 +33,11 @@ int	window_init(t_fractal *fractal)
 	return (0);
 }
 
-void end_fractal(t_fractal *fractal)
+int end_fractal(t_fractal *fractal)
 {
 	mlx_destroy_window(fractal->mlx_ptr, fractal->win_ptr);
 	fractal->win_ptr = NULL;
 	mlx_destroy_display(fractal->mlx_ptr);
 	free(fractal->mlx_ptr);
+	return(0);
 }

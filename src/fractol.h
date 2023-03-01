@@ -52,10 +52,18 @@ typedef struct s_fractal
 	//float zoom;
 }	t_fractal;
 
+/*Args*/
 int		valid_args(int argc, char **argv);
+/*Init*/
 int		hooks_init(t_fractal *fractal);
 int		window_init(t_fractal *fractal);
+/*Hooks*/
+int		hook_handler(int keycode);
+int		key_handler(int keycode);
+int		mouse_handler(int keycode);
+/*Errors*/
 int		error_msg(void);
-void	end_fractal(t_fractal *fractal);
+/*End*/
+int	end_fractal(t_fractal *fractal);
 
 #endif
