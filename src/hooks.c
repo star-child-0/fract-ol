@@ -14,7 +14,7 @@
 
 int hook_handler(int keycode, t_fractal *fractal)
 {
-    if(!mouse_handler(keycode) || !key_handler(keycode, fractal))
+    if(!key_handler(keycode, fractal))
         return(0);
     //draw
     return(1);
@@ -35,6 +35,7 @@ int key_handler(int keycode, t_fractal *fractal)
 {
     if(keycode == XK_Escape)
     {
+        printf("Escape");
         end_fractal(fractal);
         return(0);
     }

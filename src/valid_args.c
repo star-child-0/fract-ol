@@ -17,8 +17,8 @@ int	julia_args(char **argv)
 	int	x;
 	int	y;
 
-	x = ft_atoi(argv[2]);
-	y = ft_atoi(argv[3]);
+	x = atof(argv[2]);
+	y = atof(argv[3]);
 	if (x > -2 && x < 2 && y > -2 && y < 2)
 		return (1);
 	return (0);
