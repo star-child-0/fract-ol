@@ -33,6 +33,8 @@ int	window_init(t_data *data)
 	data->img.mlx_img = mlx_new_image(data->mlx_ptr, WIN_WIDTH, WIN_HEIGHT);
 	if (!(data->img.mlx_img))
 		ft_printf("Error\n");
+	data->img.addr = mlx_get_data_addr(data->img.mlx_img,
+			&data->img.bpp, &data->img.line_len, &data->img.endian);
 	return (0);
 }
 
@@ -45,13 +47,13 @@ int end_data(t_data *data)
 	mlx_destroy_display(data->mlx_ptr);
 	data->mlx_ptr = NULL;
 	free(data->mlx_ptr);
-	free(data->mlx_ptr);
 	return(0);
 }
 
 void draw_handler(t_data *data)
 {
 	mlx_clear_window(data->mlx_ptr, data->win_ptr);
+	data->color = 0x080808;
 	data->zoom = MAX_ITER;
 	equation(data);
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,

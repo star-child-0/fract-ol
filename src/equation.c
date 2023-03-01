@@ -12,13 +12,13 @@
 
 # include "fractol.h"
 
-void my_mlx_pixel_put(t_img *img, int x, int y, int color)
+void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
 {
-    char *dst;
+	char	*pixel;
 
-    dst = img->addr + (y * img->line_len + x * (img->bpp / 8));
-    ft_printf("---");
-    *(int*)dst = color;
+	pixel = img->addr + (y * img->line_len + x * (img->bpp / 8));
+    ft_printf("pixel: %s", pixel);
+	*(int *)pixel = color;
 }
 
 int equation(t_data *data)
@@ -44,7 +44,7 @@ int equation(t_data *data)
                 my_mlx_pixel_put(&data->img, data->coord.x, data->coord.y, 0x000000);
             else
             {
-                my_mlx_pixel_put(data->img.mlx_img, data->coord.x, data->coord.y, 0x0000FF * data->coord.iter);
+                my_mlx_pixel_put(data->img.mlx_img, data->coord.x, data->coord.y, data->color * data->coord.iter);
                 ft_printf("x: %f, y: %f, iter: %d", data->coord.x, data->coord.y, data->coord.iter);
             }
             data->coord.y++;
