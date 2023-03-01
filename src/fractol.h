@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 18:59:56 by anvannin          #+#    #+#             */
-/*   Updated: 2023/02/28 21:28:44 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/03/01 20:14:22 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,14 @@
 
 typedef struct s_coords
 {
-	float x;
-	float y;
-	float cr;
-	float ci;
-	float zr;
-	float zi;
-	float tmp;
-	int iter;
+	float	x;
+	float	y;
+	float	cr;
+	float	ci;
+	float	zr;
+	float	zi;
+	float	tmp;
+	int		iter;
 }	t_coords;
 
 typedef struct s_img
@@ -49,14 +49,12 @@ typedef struct s_img
 
 typedef struct s_data
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
-	//int add_px;
-	//int add_py;
-	float zoom;
-	char *fractal;
-	t_img	img;
-	t_coords coord;
+	void		*mlx_ptr;
+	void		*win_ptr;
+	float		zoom;
+	char		*fractal;
+	t_img		img;
+	t_coords	coord;
 }	t_data;
 
 /*Args*/
@@ -71,6 +69,7 @@ int		mouse_handler(int keycode, t_data *data);
 /*Draw*/
 void	draw_handler(t_data *data);
 int		equation(t_data *data);
+void		equation2(t_data *data);
 /*Errors*/
 int		error_msg(void);
 /*End*/
