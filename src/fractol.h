@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 17:02:42 by cscelfo           #+#    #+#             */
-/*   Updated: 2023/02/27 17:59:55 by cscelfo          ###   ########.fr       */
+/*   Updated: 2023/02/28 18:16:09 by cscelfo          ###   ########.fr       */
 /*   Updated: 2023/02/20 19:41:08 by anvannin         ###   ########.fr       */
 /*   Updated: 2023/02/25 18:25:03 by anvannin         ###   ########.fr       */
 /*   Updated: 2023/02/27 17:26:01 by cscelfo          ###   ########.fr       */
@@ -31,6 +31,7 @@
 # define WINDOW_HEIGHT 1080
 # define MLX_ERROR -1
 # define MAX_ITER 200
+# define BOUNDARY 2
 
 typedef struct s_img
 {
@@ -69,6 +70,6 @@ int	ft_draw_pixels(t_data *data);
 void	my_pixel_put(t_img *img, int x, int y, int color);
 void	draw(t_data *data);
 int		draw_handle(t_data *data);
-int		ft_mandelbrot_pass(t_coords *coord);
+int		ft_mandelbrot_pass(t_data *data);
 
 #endif

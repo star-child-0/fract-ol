@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 19:39:20 by anvannin          #+#    #+#             */
-/*   Updated: 2023/02/25 19:17:56 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/02/28 18:22:27 by cscelfo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ int	ft_mandelbrot_pass(t_coords *coord)
 	if (pow(coord->x, 2) + pow(coord->y, 2) > 4)
 		return (1);
 	i = 2;
-	//coord->cx = pow(coord->x, 2) - pow(coord->y, 2) + coord->x;
-	//coord->cy = (2 * coord->x * coord->y) + coord->y;
-	coord->cx = 0;
-	coord->cy = 0;
+	coord->cx = pow(coord->x, 2) - pow(coord->y, 2) + coord->x;
+	coord->cy = (2 * coord->x * coord->y) + coord->y;
+	//coord->cx = 0;
+	//coord->cy = 0;
 	while (pow(coord->cx, 2) + pow(coord->cy, 2) < 4 && i < MAX_ITER
 	&& ++i)
 	{
