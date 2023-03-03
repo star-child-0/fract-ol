@@ -30,13 +30,13 @@ int	equation(t_data *data)
 		while (data->coord.y < WIN_HEIGHT)
 		{
 			data->coord.iter = 0;
-			data->coord.cr = (data->coord.x  + data->move_x) / data->zoom - 2;
-			data->coord.ci = (data->coord.y  + data->move_y) / data->zoom - 2;
+			data->coord.cr = (data->coord.x  + data->move_x) / 250 + data->x_min;
+			data->coord.ci = (data->coord.y  + data->move_y) / 250 + data->y_min;
 			data->coord.zr = 0;
 			data->coord.zi = 0;
 			equation2(data);
 			my_mlx_pixel_put(data, data->coord.x, data->coord.y, data->color
-				* data->coord.iter * 4200);
+				* data->coord.iter * 69420);
 			data->coord.y++;
 		}
 		data->coord.x++;

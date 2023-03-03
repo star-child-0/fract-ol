@@ -27,13 +27,13 @@ int	mouse_handler(int keycode, t_data *data)
 
 int	key_handler(int keycode, t_data *data)
 {
-	ft_printf("key data: %p\n", data->mlx_ptr);
+	//ft_printf("key data: %p\n", data->mlx_ptr);
 	if (keycode == XK_Escape)
 	{
 		end_fractal(data);
 		return (0);
 	}
-	if (keycode == XK_Up)
+	else if (keycode == XK_Up)
 		data->move_y -= WIN_HEIGHT / 20;
 	else if (keycode == XK_Left)
 		data->move_x -= WIN_WIDTH / 20;
@@ -44,7 +44,11 @@ int	key_handler(int keycode, t_data *data)
 	else if (keycode == XK_c)
 		data->color += 0x080808;
 	else if (keycode == XK_x)
+	{
 		data->zoom -= 20;
+		data->x_min += 0.15;
+		data->y_min += 0.15;
+	}
 	else if (keycode == XK_z)
 		data->zoom += 20;
 	else
