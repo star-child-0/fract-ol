@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 18:59:56 by anvannin          #+#    #+#             */
-/*   Updated: 2023/03/01 20:14:22 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/03/03 15:36:25 by cscelfo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@
 
 typedef struct s_coords
 {
-	float	x;
-	float	y;
+	float	px;
+	float	py;
 	float	cr;
 	float	ci;
 	float	zr;
@@ -67,6 +67,7 @@ int		valid_args(int argc, char **argv);
 /*Init*/
 int		hooks_init(t_data *data);
 int		window_init(t_data *data);
+int		get_small_side();
 /*Hooks*/
 //int		hook_handler(int keycode, t_data *data);
 int		key_handler(int keycode, t_data *data);
