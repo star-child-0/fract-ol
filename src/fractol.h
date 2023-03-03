@@ -56,6 +56,8 @@ typedef struct s_data
 	int			move_y;
 	float		zoom;
 	int 		color;
+	float		x_min;
+	float		y_min;
 	t_img		img;
 	t_coords	coord;
 }	t_data;
@@ -74,6 +76,7 @@ void	draw_handler(t_data *data);
 int		equation(t_data *data);
 void		equation2(t_data *data);
 void	draw(t_data *data);
+void	window_labels(t_data *data);
 /*Errors*/
 int		error_msg(void);
 /*End*/

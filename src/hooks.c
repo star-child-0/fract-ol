@@ -14,7 +14,7 @@
 
 int	mouse_handler(int keycode, t_data *data)
 {
-	ft_printf("data:\n", data);
+	ft_printf("mouse data: %p\n", data->mlx_ptr);
 	if (keycode == 4)
 		data->zoom /= 1.1;
 	else if (keycode == 5)
@@ -27,6 +27,7 @@ int	mouse_handler(int keycode, t_data *data)
 
 int	key_handler(int keycode, t_data *data)
 {
+	ft_printf("key data: %p\n", data->mlx_ptr);
 	if (keycode == XK_Escape)
 	{
 		end_fractal(data);
@@ -42,6 +43,10 @@ int	key_handler(int keycode, t_data *data)
 		data->move_x += WIN_WIDTH / 20;
 	else if (keycode == XK_c)
 		data->color += 0x080808;
+	else if (keycode == XK_x)
+		data->zoom -= 20;
+	else if (keycode == XK_z)
+		data->zoom += 20;
 	else
 		return (0);
 	draw(data);

@@ -30,13 +30,13 @@ int	equation(t_data *data)
 		while (data->coord.y < WIN_HEIGHT)
 		{
 			data->coord.iter = 0;
-			data->coord.cr = (data->coord.x  + data->move_x) / WIN_HEIGHT / 62 * MAX_ITER - data->zoom;
-			data->coord.ci = (data->coord.y  + data->move_y) / WIN_HEIGHT / 62 * MAX_ITER - data->zoom;
+			data->coord.cr = (data->coord.x  + data->move_x) / data->zoom - 2;
+			data->coord.ci = (data->coord.y  + data->move_y) / data->zoom - 2;
 			data->coord.zr = 0;
 			data->coord.zi = 0;
 			equation2(data);
 			my_mlx_pixel_put(data, data->coord.x, data->coord.y, data->color
-				* data->coord.iter * 1000);
+				* data->coord.iter * 4200);
 			data->coord.y++;
 		}
 		data->coord.x++;
@@ -63,4 +63,16 @@ void	draw(t_data *data)
 	equation(data);
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
 		data->img.mlx_img, 0, 0);
+	window_labels(data);
+}
+
+void	window_labels(t_data *data)
+{
+	int color;
+
+	color = 0xffffff;
+	if(data->color >= color && data->color <= 0x808080)
+		color = 0x000000;
+	mlx_string_put(data->mlx_ptr, data->win_ptr, 35, 40, color, "Arrow keys to move around");
+	mlx_string_put(data->mlx_ptr, data->win_ptr, 35, 60, color, "'C' to change the color range");
 }
