@@ -40,7 +40,7 @@ int equation(t_data *data)
                 data->coord.zi = 2 * data->coord.tmp * data->coord.zi + data->coord.ci;
                 data->coord.iter++;
             }
-            my_mlx_pixel_put(data, data->coord.x, data->coord.y, 0x080808 * pow(data->coord.iter, 1.75));
+            my_mlx_pixel_put(data, data->coord.x, data->coord.y, 0x424242 * pow(data->coord.iter, 1.99999));
             data->coord.y++;
         }
         data->coord.x++;
