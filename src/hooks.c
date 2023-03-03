@@ -14,12 +14,14 @@
 
 int	mouse_handler(int keycode, t_data *data)
 {
+	ft_printf("data:\n", data);
 	if (keycode == 4)
 		data->zoom /= 1.1;
 	else if (keycode == 5)
 		data->zoom *= 1.1;
 	else
 		return (0);
+	draw(data);
 	return (1);
 }
 
@@ -31,16 +33,17 @@ int	key_handler(int keycode, t_data *data)
 		return (0);
 	}
 	if (keycode == XK_Up)
-		ft_printf("Up\n");
-	else if (keycode == XK_Right)
-		ft_printf("Right\n");
-	else if (keycode == XK_Down)
-		ft_printf("Down\n");
+		data->move_y -= WIN_HEIGHT / 20;
 	else if (keycode == XK_Left)
-		ft_printf("Left\n");
+		data->move_x -= WIN_WIDTH / 20;
+	else if (keycode == XK_Down)
+		data->move_y += WIN_HEIGHT / 20;
+	else if (keycode == XK_Right)
+		data->move_x += WIN_WIDTH / 20;
 	else if (keycode == XK_c)
-		ft_printf("Color Shift\n");
+		data->color += 0x080808;
 	else
 		return (0);
+	draw(data);
 	return (1);
 }

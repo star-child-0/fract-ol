@@ -51,8 +51,11 @@ typedef struct s_data
 {
 	void		*mlx_ptr;
 	void		*win_ptr;
-	float		zoom;
 	char		*fractal;
+	int			move_x;
+	int			move_y;
+	float		zoom;
+	int 		color;
 	t_img		img;
 	t_coords	coord;
 }	t_data;
@@ -63,13 +66,14 @@ int		valid_args(int argc, char **argv);
 int		hooks_init(t_data *data);
 int		window_init(t_data *data);
 /*Hooks*/
-int		hook_handler(int keycode, t_data *data);
+//int		hook_handler(int keycode, t_data *data);
 int		key_handler(int keycode, t_data *data);
 int		mouse_handler(int keycode, t_data *data);
 /*Draw*/
 void	draw_handler(t_data *data);
 int		equation(t_data *data);
 void		equation2(t_data *data);
+void	draw(t_data *data);
 /*Errors*/
 int		error_msg(void);
 /*End*/

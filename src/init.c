@@ -15,6 +15,7 @@
 int	hooks_init(t_data *data)
 {
 	mlx_key_hook(data->win_ptr, key_handler, data);
+	mlx_mouse_hook(data->win_ptr, mouse_handler, data);
 	mlx_hook(data->win_ptr, 17, 1L << 17, end_fractal, data);
 	mlx_loop(data->mlx_ptr);
 	return (0);
@@ -39,6 +40,7 @@ int	window_init(t_data *data)
 
 int	end_fractal(t_data *data)
 {
+	mlx_loop_end(data->mlx_ptr);
 	mlx_destroy_image(data->mlx_ptr, data->img.mlx_img);
 	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
 	mlx_destroy_display(data->mlx_ptr);
@@ -50,8 +52,9 @@ int	end_fractal(t_data *data)
 
 void	draw_handler(t_data *data)
 {
+	data->move_x = 0;
+	data->move_y = 0;
 	data->zoom = 2;
-	equation(data);
-	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-		data->img.mlx_img, 0, 0);
+	data->color = 0x080808;
+	draw(data);
 }
