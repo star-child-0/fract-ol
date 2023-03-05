@@ -16,9 +16,9 @@ int	mouse_handler(int keycode, t_data *data)
 {
 	ft_printf("mouse data: %p\n", data->mlx_ptr);
 	if (keycode == 4)
-		data->zoom /= 1.1;
-	else if (keycode == 5)
 		data->zoom *= 1.1;
+	else if (keycode == 5)
+		data->zoom /= 1.1;
 	else
 		return (0);
 	draw(data);
@@ -45,12 +45,12 @@ int	key_handler(int keycode, t_data *data)
 		data->color += 0x080808;
 	else if (keycode == XK_x)
 	{
-		data->zoom -= 20;
-		data->x_min += 0.15;
-		data->y_min += 0.15;
+		data->zoom += 20;
 	}
 	else if (keycode == XK_z)
-		data->zoom += 20;
+	{
+		data->zoom -= 20;
+	}
 	else
 		return (0);
 	draw(data);

@@ -33,8 +33,8 @@ int	equation(t_data *data)
 		while (data->coord.py < small_side)
 		{
 			data->coord.iter = 0;
-			data->coord.cr = (data->coord.px  + data->move_x) / small_side / 62 * data->zoom - 2;
-			data->coord.ci = (data->coord.py  + data->move_y) / small_side / 62 * data->zoom - 2;
+			data->coord.cr = (data->coord.px  + data->move_x) / data->zoom - data->x_min;
+			data->coord.ci = (data->coord.py  + data->move_y) / data->zoom - data->y_min;
 			data->coord.zr = 0;
 			data->coord.zi = 0;
 			equation2(data);

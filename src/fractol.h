@@ -22,9 +22,9 @@
 # include <X11/keysym.h>
 # include <X11/X.h>
 
-# define WIN_WIDTH 1000
-# define WIN_HEIGHT 1000
-# define MAX_ITER 250
+# define WIN_WIDTH 600
+# define WIN_HEIGHT 600
+# define MAX_ITER 150
 
 typedef struct s_coords
 {

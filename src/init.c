@@ -14,7 +14,8 @@
 
 int	hooks_init(t_data *data)
 {
-	mlx_key_hook(data->win_ptr, key_handler, data);
+	mlx_do_key_autorepeaton(data->mlx_ptr);
+	mlx_hook(data->win_ptr,2, 1l<<0, key_handler, data);
 	mlx_mouse_hook(data->win_ptr, mouse_handler, data);
 	mlx_hook(data->win_ptr, 17, 1L << 17, end_fractal, data);
 	mlx_loop(data->mlx_ptr);
@@ -54,9 +55,9 @@ void	draw_handler(t_data *data)
 {
 	data->move_x = 0;
 	data->move_y = 0;
-	data->x_min = -2;
-	data->y_min = -2;
-	data->zoom = MAX_ITER;
+	data->x_min = 2;
+	data->y_min = 2;
+	data->zoom = get_small_side() / 4;
 	data->color = 0x080808;
 	draw(data);
 }
