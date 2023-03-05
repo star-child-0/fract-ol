@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cscelfo <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/28 18:59:56 by anvannin          #+#    #+#             */
-/*   Updated: 2023/03/01 20:14:22 by anvannin         ###   ########.fr       */
+/*   Created: 2023/02/27 18:01:25 by cscelfo           #+#    #+#             */
+/*   Updated: 2023/02/27 21:04:17 by cscelfo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ int		mouse_handler(int keycode, t_data *data);
 void	draw_handler(t_data *data);
 int		equation(t_data *data);
 void		equation2(t_data *data);
+void	my_pixel_put(t_img *img, int x, int y, int color);
 void	draw(t_data *data);
 void	window_labels(t_data *data);
 /*Errors*/
