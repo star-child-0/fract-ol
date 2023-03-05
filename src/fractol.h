@@ -28,10 +28,10 @@
 
 typedef struct  s_complex
 {
-    float      re;
-	float	   re_sq;
-    float      im;
-	float	   im_sq;
+    float      re; // real
+	float	   re_sq; // real squared
+    float      im; // imaginary
+	float	   im_sq; // imaginary squared
 }               t_complex;
 
 typedef struct s_coords
