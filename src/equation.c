@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:09:55 by gmattei           #+#    #+#             */
-/*   Updated: 2023/03/01 20:14:22 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/03/03 15:37:20 by cscelfo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,23 +23,26 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 
 int	equation(t_data *data)
 {
-	data->coord.x = 0;
-	while (data->coord.x < WIN_WIDTH)
+	int	small_side;
+
+	small_side = get_small_side();
+	data->coord.px = 0;
+	while (data->coord.px < small_side)
 	{
-		data->coord.y = 0;
-		while (data->coord.y < WIN_HEIGHT)
+		data->coord.py = 0;
+		while (data->coord.py < small_side)
 		{
 			data->coord.iter = 0;
-			data->coord.cr = (data->coord.x  + data->move_x) / 250 + data->x_min;
-			data->coord.ci = (data->coord.y  + data->move_y) / 250 + data->y_min;
+			data->coord.cr = (data->coord.px  + data->move_x) / small_side / 62 * data->zoom - 2;
+			data->coord.ci = (data->coord.py  + data->move_y) / small_side / 62 * data->zoom - 2;
 			data->coord.zr = 0;
 			data->coord.zi = 0;
 			equation2(data);
-			my_mlx_pixel_put(data, data->coord.x, data->coord.y, data->color
-				* data->coord.iter * 69420);
-			data->coord.y++;
+			my_mlx_pixel_put(data, data->coord.px, data->coord.py, data->color
+				* data->coord.iter * 4200);
+			data->coord.py++;
 		}
-		data->coord.x++;
+		data->coord.px++;
 	}
 	return (0);
 }
