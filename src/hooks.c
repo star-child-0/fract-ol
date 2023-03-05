@@ -45,11 +45,17 @@ int	key_handler(int keycode, t_data *data)
 		data->color += 0x080808;
 	else if (keycode == XK_x)
 	{
-		data->zoom += 20;
+		//mlx_mouse_get_pos(data->mlx_ptr, data->win_ptr, &data->mouse_x, &data->mouse_y);
+		data->x_max -= 0.2;
+		data->x_min += 0.2;
+		data->y_max -= 0.2;
+		data->y_min += 0.2;
+		//data->coord.max_iter += 3;
 	}
 	else if (keycode == XK_z)
 	{
 		data->zoom -= 20;
+		data->coord.max_iter -= 3;
 	}
 	else
 		return (0);

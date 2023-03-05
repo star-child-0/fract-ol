@@ -33,10 +33,8 @@ int	equation(t_data *data)
 		while (data->coord.py < small_side)
 		{
 			data->coord.iter = 0;
-			data->coord.cr = (data->coord.px  + data->move_x) / data->zoom - data->x_min;
-			data->coord.ci = (data->coord.py  + data->move_y) / data->zoom - data->y_min;
-			data->coord.zr = 0;
-			data->coord.zi = 0;
+			data->coord.c.re = data->x_min + (data->coord.px + data->move_x)* (data->x_max - data->x_min) / small_side;
+			data->coord.c.im = data->y_max - (data->coord.py + data->move_y)* (data->y_max - data->y_min) / small_side;
 			equation2(data);
 			my_mlx_pixel_put(data, data->coord.px, data->coord.py, data->color
 				* data->coord.iter * 4200);
@@ -49,21 +47,31 @@ int	equation(t_data *data)
 
 void	equation2(t_data *data)
 {
-	while (data->coord.zr * data->coord.zr + data->coord.zi
-		* data->coord.zi < 4 && data->coord.iter < MAX_ITER)
+	data->coord.z.re = 0;
+	data->coord.z.im = 0;
+	data->coord.z.re_sq = 0;
+	data->coord.z.im_sq = 0;
+	while (data->coord.z.re_sq + data->coord.z.im_sq < 4 && data->coord.iter < data->coord.max_iter)
 	{
-		data->coord.tmp = data->coord.zr;
-		data->coord.zr = data->coord.zr * data->coord.zr
-			- data->coord.zi * data->coord.zi + data->coord.cr;
-		data->coord.zi = 2 * data->coord.tmp * data->coord.zi
-			+ data->coord.ci;
+		data->coord.z.im = 2 * data->coord.z.re * data->coord.z.im
+			+ data->coord.c.im;
+		data->coord.z.re = data->coord.z.re_sq - data->coord.z.im_sq + data->coord.c.re;
+		data->coord.z.re_sq = data->coord.z.re * data->coord.z.re;
+		data->coord.z.im_sq = data->coord.z.im * data->coord.z.im;
 		data->coord.iter++;
 	}
 }
 
 void	draw(t_data *data)
 {
+	if(data->mouse_x > WIN_WIDTH)
+		data->mouse_x = WIN_WIDTH;
+	if(data->mouse_y > WIN_HEIGHT)
+		data->mouse_y = WIN_HEIGHT;
+	if(data->mouse_y < 0)
+		data->mouse_y = 0;
 	equation(data);
+	ft_printf("mouse_x: %d, mouse_y: %d\n", data->mouse_x, data->mouse_y);
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
 		data->img.mlx_img, 0, 0);
 	window_labels(data);
@@ -74,7 +82,7 @@ void	window_labels(t_data *data)
 	int color;
 
 	color = 0xffffff;
-	if(data->color >= color && data->color <= 0x808080)
+	if(data->color >= color - 0x080808 && data->color <= 0x080808)
 		color = 0x000000;
 	mlx_string_put(data->mlx_ptr, data->win_ptr, 35, 40, color, "Arrow keys to move around");
 	mlx_string_put(data->mlx_ptr, data->win_ptr, 35, 60, color, "'C' to change the color range");

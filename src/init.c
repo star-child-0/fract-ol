@@ -53,10 +53,15 @@ int	end_fractal(t_data *data)
 
 void	draw_handler(t_data *data)
 {
+	data->x_max = 2;
+	data->x_min = -2;
+	data->y_max = 2;
+	data->y_min = -2;
 	data->move_x = 0;
 	data->move_y = 0;
-	data->x_min = 2;
-	data->y_min = 2;
+	data->mouse_x = 0;
+	data->mouse_y = 0;
+	data->coord.max_iter = MAX_ITER;
 	data->zoom = get_small_side() / 4;
 	data->color = 0x080808;
 	draw(data);
