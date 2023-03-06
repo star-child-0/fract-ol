@@ -14,7 +14,6 @@
 
 int	mouse_handler(int keycode, t_data *data)
 {
-	ft_printf("mouse data: %p\n", data->mlx_ptr);
 	if (keycode == 4)
 		data->zoom *= 1.1;
 	else if (keycode == 5)
