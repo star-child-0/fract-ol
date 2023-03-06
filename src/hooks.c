@@ -6,22 +6,25 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 12:11:06 by gmattei           #+#    #+#             */
-/*   Updated: 2023/03/01 20:04:28 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/03/03 19:02:10 by cscelfo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	mouse_handler(int keycode, t_data *data)
+int	mouse_handler(int keycode, t_data **data)
 {
-	ft_printf("mouse data: %p\n", data->mlx_ptr);
+	printf("mouse data: %p\n", &data.win_ptr);
+	printf("mouse data: %p\n", &data.mlx_ptr);
 	if (keycode == 4)
-		data->zoom /= 1.1;
+		write (1, "a", 1);
+//		data->zoom /= 1.1;
 	else if (keycode == 5)
-		data->zoom *= 1.1;
+		write (1, "a", 1);
+	//	data->zoom *= 1.1;
 	else
 		return (0);
-	draw(data);
+	draw(*data);
 	return (1);
 }
 
@@ -44,7 +47,7 @@ int	key_handler(int keycode, t_data *data)
 	else if (keycode == XK_c)
 		data->color += 0x080808;
 	else if (keycode == XK_x)
-		data->zoom -= 20;
+		data->zoom -= 50;
 	else if (keycode == XK_z)
 		data->zoom += 20;
 	else

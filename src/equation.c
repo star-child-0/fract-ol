@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:09:55 by gmattei           #+#    #+#             */
-/*   Updated: 2023/03/03 15:37:20 by cscelfo          ###   ########.fr       */
+/*   Updated: 2023/03/03 17:52:18 by cscelfo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,18 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 
 int	equation(t_data *data)
 {
-	int	small_side;
-
-	small_side = get_small_side();
+	data->small_side = get_small_side();
 	data->coord.px = 0;
-	while (data->coord.px < small_side)
+	while (data->coord.px < data->small_side)
 	{
 		data->coord.py = 0;
-		while (data->coord.py < small_side)
+		while (data->coord.py < data->small_side)
 		{
 			data->coord.iter = 0;
-			data->coord.cr = (data->coord.px  + data->move_x) / small_side / 62 * data->zoom - 2;
-			data->coord.ci = (data->coord.py  + data->move_y) / small_side / 62 * data->zoom - 2;
+			data->coord.cr = (data->coord.px  + data->move_x) / data->small_side / 62 * data->zoom - 2;
+			data->coord.ci = (data->coord.py  + data->move_y) / data->small_side / 62 * data->zoom - 2;
+			if (data->coord.cr * data->coord.cr + data->coord.ci * data->coord.ci > 4 && data->coord.iter++)
+				break ;
 			data->coord.zr = 0;
 			data->coord.zi = 0;
 			equation2(data);

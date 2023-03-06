@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 18:59:56 by anvannin          #+#    #+#             */
-/*   Updated: 2023/03/03 15:36:25 by cscelfo          ###   ########.fr       */
+/*   Updated: 2023/03/03 19:00:23 by cscelfo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ typedef struct s_data
 	int			move_y;
 	float		zoom;
 	int 		color;
+	int			small_side;
 	float		x_min;
 	float		y_min;
 	t_img		img;
@@ -71,7 +72,7 @@ int		get_small_side();
 /*Hooks*/
 //int		hook_handler(int keycode, t_data *data);
 int		key_handler(int keycode, t_data *data);
-int		mouse_handler(int keycode, t_data *data);
+int		mouse_handler(int keycode, t_data **data);
 /*Draw*/
 void	draw_handler(t_data *data);
 int		equation(t_data *data);
