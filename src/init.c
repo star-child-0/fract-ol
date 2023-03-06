@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 20:12:36 by anvannin          #+#    #+#             */
-/*   Updated: 2023/03/03 18:51:34 by cscelfo          ###   ########.fr       */
+/*   Updated: 2023/03/06 15:39:36 by cscelfo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	hooks_init(t_data *data)
 {
-	mlx_key_hook(data->win_ptr, key_handler, data);
-	ft_printf("\ndata->win_ptr before mouse_hook: %p\n", data->win_ptr);
+	mlx_do_key_autorepeaton(data->mlx_ptr);
+	mlx_hook(data->win_ptr,2, 1l<<0, key_handler, data);
 	mlx_mouse_hook(data->win_ptr, mouse_handler, data);
 	ft_printf("\ndata->win_ptr after mouse_hook: %p\n", data->win_ptr);
 	mlx_hook(data->win_ptr, 17, 1L << 17, end_fractal, data);
@@ -67,11 +67,16 @@ int	end_fractal(t_data *data)
 
 void	draw_handler(t_data *data)
 {
+	data->x_max = 2;
+	data->x_min = -2;
+	data->y_max = 2;
+	data->y_min = -2;
 	data->move_x = 0;
 	data->move_y = 0;
-	data->x_min = -2;
-	data->y_min = -2;
-	data->zoom = MAX_ITER;
+	data->mouse_x = 0;
+	data->mouse_y = 0;
+	data->coord.max_iter = MAX_ITER;
+	data->zoom = get_small_side() / 4;
 	data->color = 0x080808;
 	draw(data);
 }
