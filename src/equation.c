@@ -23,18 +23,15 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 
 int	equation(t_data *data)
 {
-	int	small_side;
-
-	small_side = get_small_side();
 	data->coord.px = 0;
-	while (data->coord.px < small_side)
+	while (data->coord.px < data->small_side)
 	{
 		data->coord.py = 0;
-		while (data->coord.py < small_side)
+		while (data->coord.py < data->small_side)
 		{
 			data->coord.iter = 0;
-			data->coord.c.re = data->x_min + (data->coord.px + data->move_x)* (data->x_max - data->x_min) / small_side;
-			data->coord.c.im = data->y_max - (data->coord.py + data->move_y)* (data->y_max - data->y_min) / small_side;
+			data->coord.c.re = data->x_min + (data->coord.px + data->move_x) * (data->x_max - data->x_min) / data->small_side;
+			data->coord.c.im = data->y_max - (data->coord.py + data->move_y) * (data->y_max - data->y_min) / data->small_side;
 			equation2(data);
 			my_mlx_pixel_put(data, data->coord.px, data->coord.py, data->color
 				* data->coord.iter * 4200);
@@ -71,7 +68,7 @@ void	draw(t_data *data)
 	if(data->mouse_y < 0)
 		data->mouse_y = 0;
 	equation(data);
-	ft_printf("mouse_x: %d, mouse_y: %d\n", data->mouse_x, data->mouse_y);
+	ft_printf("mouse_x: %d, mouse_y: %d, move_x: %d, move_y: %d\n", data->mouse_x, data->mouse_y, data->move_x, data->move_y);
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
 		data->img.mlx_img, 0, 0);
 	window_labels(data);

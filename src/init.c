@@ -75,8 +75,8 @@ void	draw_handler(t_data *data)
 	data->move_y = 0;
 	data->mouse_x = 0;
 	data->mouse_y = 0;
+	data->small_side = get_small_side();
 	data->coord.max_iter = MAX_ITER;
-	data->zoom = get_small_side() / 4;
 	data->color = 0x080808;
 	draw(data);
 }

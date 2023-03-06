@@ -40,7 +40,6 @@ typedef struct s_coords
 	float	py;
 	t_complex	c;
 	t_complex	z;
-	float	tmp;
 	int		iter;
 	int		max_iter;
 }	t_coords;
@@ -59,7 +58,8 @@ typedef struct s_data
 	void		*mlx_ptr;
 	void		*win_ptr;
 	char		*fractal;
-	float		zoom;
+	int 		small_side;
+	float		zoom; //da togliere
 	int 		color;
 	int			move_x;
 	int			move_y;
@@ -69,10 +69,6 @@ typedef struct s_data
 	float       y_max;
 	int			mouse_x;
 	int			mouse_y;
-	int         screen_width;
-	int         screen_height;
-	int		    win_pos_x;
-	int		    win_pos_y;
 	t_img		img;
 	t_coords	coord;
 }	t_data;
