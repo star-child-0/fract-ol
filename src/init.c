@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 20:12:36 by anvannin          #+#    #+#             */
-/*   Updated: 2023/03/03 15:35:32 by cscelfo          ###   ########.fr       */
+/*   Updated: 2023/03/06 17:58:57 by cscelfo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 int	hooks_init(t_data *data)
 {
 	mlx_do_key_autorepeaton(data->mlx_ptr);
-	mlx_hook(data->win_ptr,2, 1l<<0, key_handler, data);
-	mlx_mouse_hook(data->win_ptr, mouse_handler, data);
+	mlx_hook(data->win_ptr,2, 1l<<0, &key_handler, data);
+	mlx_mouse_hook(data->win_ptr, &mouse_handler, data);
 	mlx_hook(data->win_ptr, 17, 1L << 17, end_fractal, data);
 	mlx_loop(data->mlx_ptr);
 	return (0);
@@ -45,7 +45,9 @@ int	end_fractal(t_data *data)
 	mlx_destroy_image(data->mlx_ptr, data->img.mlx_img);
 	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
 	mlx_destroy_display(data->mlx_ptr);
+	data->win_ptr = NULL;
 	free(data->mlx_ptr);
+	data->mlx_ptr = NULL;
 	free(data);
 	exit(0);
 	return (0);

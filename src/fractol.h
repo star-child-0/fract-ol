@@ -6,7 +6,7 @@
 /*   By: cscelfo <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 18:59:56 by anvannin          #+#    #+#             */
-/*   Updated: 2023/03/03 15:36:25 by cscelfo          ###   ########.fr       */
+/*   Updated: 2023/03/06 17:02:02 by cscelfo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "../libft/libft.h"
 # include "../minilibx-linux/mlx.h"
+//# include "../minilibx-linux/mlx_int.h"
 # include <math.h>
 # include <stddef.h>
 # include <stdlib.h>
@@ -83,7 +84,7 @@ int		get_small_side();
 /*Hooks*/
 //int		hook_handler(int keycode, t_data *data);
 int		key_handler(int keycode, t_data *data);
-int		mouse_handler(int keycode, t_data *data);
+int		mouse_handler(int keycode, int x, int y, t_data *data);
 /*Draw*/
 void	draw_handler(t_data *data);
 int		equation(t_data *data);
