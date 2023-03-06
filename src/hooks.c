@@ -6,20 +6,26 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 12:11:06 by gmattei           #+#    #+#             */
-/*   Updated: 2023/03/06 15:50:06 by cscelfo          ###   ########.fr       */
+/*   Updated: 2023/03/06 18:02:23 by cscelfo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	mouse_handler(int keycode, t_data *data)
+int	mouse_handler(int keycode, int x, int y, t_data *data)
 {
-	printf("mouse data: %p\n", data->win_ptr);
-	printf("mouse data: %p\n", data->mlx_ptr);
+	x = data->mouse_x;
+	y = data->mouse_y;
 	if (keycode == 4)
+	{
 		data->zoom *= 1.1;
+		key_handler(XK_x, data);
+	}
 	else if (keycode == 5)
+	{
 		data->zoom /= 1.1;
+		key_handler(XK_z, data);
+	}
 	else
 		return (0);
 	draw(data);
@@ -28,7 +34,7 @@ int	mouse_handler(int keycode, t_data *data)
 
 int	key_handler(int keycode, t_data *data)
 {
-	//ft_printf("key data: %p\n", data->mlx_ptr);
+	mlx_mouse_get_pos(data->mlx_ptr, data->win_ptr, &data->mouse_x, &data->mouse_y);
 	if (keycode == XK_Escape)
 	{
 		end_fractal(data);
@@ -46,18 +52,22 @@ int	key_handler(int keycode, t_data *data)
 		data->color += 0x080808;
 	else if (keycode == XK_x)
 	{
-		mlx_mouse_get_pos(data->mlx_ptr, data->win_ptr, &data->mouse_x, &data->mouse_y);
-		data->move_x += (data->mouse_x - data->small_side / 2);
-		data->move_y += (data->mouse_y - data->small_side / 2);
-		data->x_max /= 1.2;
-		data->x_min /= 1.2;
-		data->y_max /= 1.2;
-		data->y_min /= 1.2;
-		data->coord.max_iter += 3;
+		data->move_x += (data->mouse_x - data->small_side / 2) / 2;
+		data->move_y += (data->mouse_y - data->small_side / 2) / 2;
+		data->x_max /= 2.0;
+		data->x_min /= 2.0;
+		data->y_max /= 2.0;
+		data->y_min /= 2.0;
+		data->coord.max_iter += 10;
 	}
 	else if (keycode == XK_z)
 	{
-		data->zoom -= 20;
+		data->move_x -= (data->mouse_x - data->small_side / 2);
+		data->move_y -= (data->mouse_y - data->small_side / 2);
+		data->x_max *= 1.2;
+		data->x_min *= 1.2;
+		data->y_max *= 1.2;
+		data->y_min *= 1.2;
 		data->coord.max_iter -= 3;
 	}
 	else
