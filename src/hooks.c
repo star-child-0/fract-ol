@@ -45,12 +45,14 @@ int	key_handler(int keycode, t_data *data)
 		data->color += 0x080808;
 	else if (keycode == XK_x)
 	{
-		//mlx_mouse_get_pos(data->mlx_ptr, data->win_ptr, &data->mouse_x, &data->mouse_y);
-		data->x_max -= 0.2;
-		data->x_min += 0.2;
-		data->y_max -= 0.2;
-		data->y_min += 0.2;
-		//data->coord.max_iter += 3;
+		mlx_mouse_get_pos(data->mlx_ptr, data->win_ptr, &data->mouse_x, &data->mouse_y);
+		data->move_x += (data->mouse_x - data->small_side / 2);
+		data->move_y += (data->mouse_y - data->small_side / 2);
+		data->x_max /= 1.2;
+		data->x_min /= 1.2;
+		data->y_max /= 1.2;
+		data->y_min /= 1.2;
+		data->coord.max_iter += 3;
 	}
 	else if (keycode == XK_z)
 	{
