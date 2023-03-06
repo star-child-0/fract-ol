@@ -6,23 +6,23 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 12:11:06 by gmattei           #+#    #+#             */
-/*   Updated: 2023/03/06 15:39:22 by cscelfo          ###   ########.fr       */
+/*   Updated: 2023/03/06 15:50:06 by cscelfo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	mouse_handler(int keycode, t_data **data)
+int	mouse_handler(int keycode, t_data *data)
 {
-	printf("mouse data: %p\n", &data.win_ptr);
-	printf("mouse data: %p\n", &data.mlx_ptr);
+	printf("mouse data: %p\n", data->win_ptr);
+	printf("mouse data: %p\n", data->mlx_ptr);
 	if (keycode == 4)
 		data->zoom *= 1.1;
 	else if (keycode == 5)
 		data->zoom /= 1.1;
 	else
 		return (0);
-	draw(*data);
+	draw(data);
 	return (1);
 }
 

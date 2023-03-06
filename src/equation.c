@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:09:55 by gmattei           #+#    #+#             */
-/*   Updated: 2023/03/06 15:37:19 by cscelfo          ###   ########.fr       */
+/*   Updated: 2023/03/06 15:47:30 by cscelfo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,14 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 
 int	equation(t_data *data)
 {
-	data->small_side = get_small_side();
+	int	small_side;
+
+	small_side = get_small_side();
 	data->coord.px = 0;
-	while (data->coord.px < data->small_side)
+	while (data->coord.px < small_side)
 	{
 		data->coord.py = 0;
-		while (data->coord.py < data->small_side)
+		while (data->coord.py < small_side)
 		{
 			data->coord.iter = 0;
 			data->coord.c.re = data->x_min + (data->coord.px + data->move_x)* (data->x_max - data->x_min) / small_side;

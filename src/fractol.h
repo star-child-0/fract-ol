@@ -6,7 +6,7 @@
 /*   By: cscelfo <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 18:59:56 by anvannin          #+#    #+#             */
-/*   Updated: 2023/03/06 15:37:48 by cscelfo          ###   ########.fr       */
+/*   Updated: 2023/03/06 15:50:26 by cscelfo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int		get_small_side();
 /*Hooks*/
 //int		hook_handler(int keycode, t_data *data);
 int		key_handler(int keycode, t_data *data);
-int		mouse_handler(int keycode, t_data **data);
+int		mouse_handler(int keycode, t_data *data);
 /*Draw*/
 void	draw_handler(t_data *data);
 int		equation(t_data *data);
