@@ -6,7 +6,7 @@
 /*   By: cscelfo <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 18:59:56 by anvannin          #+#    #+#             */
-/*   Updated: 2023/03/06 17:02:02 by cscelfo          ###   ########.fr       */
+/*   Updated: 2023/03/06 20:07:25 by cscelfo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ typedef struct s_data
 	void		*win_ptr;
 	char		*fractal;
 	int 		small_side;
-	float		zoom; //da togliere
 	int 		color;
 	int			move_x;
 	int			move_y;
@@ -76,6 +75,7 @@ typedef struct s_data
 
 /*Args*/
 int		valid_args(int argc, char **argv);
+void	check_fractal(char **argv, t_data *data);
 /*Init*/
 int		hooks_init(t_data *data);
 int		window_init(t_data *data);
@@ -89,7 +89,7 @@ int		mouse_handler(int keycode, int x, int y, t_data *data);
 void	draw_handler(t_data *data);
 int		equation(t_data *data);
 void		equation2(t_data *data);
-void	my_pixel_put(t_img *img, int x, int y, int color);
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 void	draw(t_data *data);
 void	window_labels(t_data *data);
 /*Errors*/
