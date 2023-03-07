@@ -19,8 +19,8 @@ int	mouse_handler(int keycode, int x, int y, t_data *data)
 	y = data->mouse_y;
 	if (keycode == 4)
 	{
-		data->move_x += data->mouse_x;
-		data->move_y += data->mouse_y;
+		data->move_x += (data->mouse_x - data->small_side / 2) / 2;
+		data->move_y += (data->mouse_y - data->small_side / 2) / 2;
 		data->x_max /= 1.2;
 		data->x_min /= 1.2;
 		data->y_max /= 1.2;
@@ -29,8 +29,8 @@ int	mouse_handler(int keycode, int x, int y, t_data *data)
 	}
 	else if (keycode == 5)
 	{
-		data->move_x -= data->mouse_x;
-		data->move_y -= data->mouse_y;
+		data->move_x -= (data->mouse_x - data->small_side / 2) / 2;
+		data->move_y -= (data->mouse_y - data->small_side / 2) / 2;
 		data->x_max *= 1.2;
 		data->x_min *= 1.2;
 		data->y_max *= 1.2;

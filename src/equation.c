@@ -83,4 +83,6 @@ void	window_labels(t_data *data)
 		color = 0x000000;
 	mlx_string_put(data->mlx_ptr, data->win_ptr, 35, 40, color, "Arrow keys to move around");
 	mlx_string_put(data->mlx_ptr, data->win_ptr, 35, 60, color, "'C' to change the color range");
+	mlx_string_put(data->mlx_ptr, data->win_ptr, 35, 80, color, "Mouse wheel to zoom in and out");
+	mlx_string_put(data->mlx_ptr, data->win_ptr, 35, 100, color, "'r' to reset the view");
 }
