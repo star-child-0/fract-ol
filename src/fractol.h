@@ -6,7 +6,7 @@
 /*   By: cscelfo <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 18:59:56 by anvannin          #+#    #+#             */
-/*   Updated: 2023/03/06 20:07:25 by cscelfo          ###   ########.fr       */
+/*   Updated: 2023/03/07 14:25:51 by cscelfo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ typedef struct s_data
 	void		*win_ptr;
 	char		*fractal;
 	int 		small_side;
+	float 	    zoom;
 	int 		color;
 	int			move_x;
 	int			move_y;
@@ -75,7 +76,6 @@ typedef struct s_data
 
 /*Args*/
 int		valid_args(int argc, char **argv);
-void	check_fractal(char **argv, t_data *data);
 /*Init*/
 int		hooks_init(t_data *data);
 int		window_init(t_data *data);

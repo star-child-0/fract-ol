@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 19:00:00 by anvannin          #+#    #+#             */
-/*   Updated: 2023/03/06 20:24:01 by cscelfo          ###   ########.fr       */
+/*   Updated: 2023/03/07 14:28:34 by cscelfo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int	main(int argc, char **argv)
 	{
 		data = (t_data *)malloc(sizeof(t_data));
 		data->fractal = argv[1];
-		check_fractal(argv, data);
 		window_init(data);
 		draw_handler(data);
 		hooks_init(data);
