@@ -68,7 +68,7 @@ void	draw(t_data *data)
 	if(data->mouse_y < 0)
 		data->mouse_y = 0;
 	equation(data);
-	ft_printf("mouse_x: %d, mouse_y: %d, move_x: %d, move_y: %d\n", data->mouse_x, data->mouse_y, data->move_x, data->move_y);
+	ft_printf("mouse_x: %d, mouse_y: %d, move_x: %d, move_y: %d, x_min: %d, x_max: %d, y_min: %d, y_max: %d\n", data->mouse_x, data->mouse_y, data->move_x, data->move_y, data->x_min, data->x_max, data->y_min, data->y_max);
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
 		data->img.mlx_img, 0, 0);
 	window_labels(data);
