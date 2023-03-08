@@ -21,12 +21,8 @@ int	main(int argc, char **argv)
 	else
 	{
 		data = (t_data *)malloc(sizeof(t_data));
-		printf("\ndata: %p\n", data);
 		data->fractal = argv[1];
-		printf("\ndata->fractal: %p\n", data->fractal);
 		window_init(data);
-		printf("\ndata->mlx_ptr: %p\n", data->mlx_ptr);
-		printf("\ndata->win_ptr: %p\n", data->win_ptr);
 		draw_handler(data);
 		hooks_init(data);
 	}
