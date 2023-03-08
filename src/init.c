@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 20:12:36 by anvannin          #+#    #+#             */
-/*   Updated: 2023/03/06 17:58:57 by cscelfo          ###   ########.fr       */
+/*   Updated: 2023/03/07 16:03:50 by cscelfo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	draw_handler(t_data *data)
 	data->mouse_x = 0;
 	data->mouse_y = 0;
 	data->small_side = get_small_side();
-	data->zoom = 1;
+	data->zoom = 1.1;
 	data->coord.max_iter = MAX_ITER;
 	data->color = 0x0000BF;
 	draw(data);

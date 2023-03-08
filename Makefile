@@ -1,4 +1,4 @@
-FILES = main.c valid_args.c init.c error_msg.c hooks.c equation.c\
+FILES = main.c valid_args.c init.c error_msg.c hooks.c draw.c \
 
 LIBFT = libft/libft.a
 
@@ -42,5 +42,5 @@ push:
 	git commit -m "make push update"
 	git push
 
-.PHONY:	all clean fclean re
+.PHONY:	all clean fclean re push
 .SILENT:

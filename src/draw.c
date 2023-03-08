@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   equation.c                                         :+:      :+:    :+:   */
+/*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:09:55 by gmattei           #+#    #+#             */
-/*   Updated: 2023/03/06 15:47:30 by cscelfo          ###   ########.fr       */
+/*   Updated: 2023/03/07 16:22:07 by cscelfo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	draw(t_data *data)
 	if(data->mouse_y < 0)
 		data->mouse_y = 0;
 	equation(data);
-	printf("mouse_x: %d, mouse_y: %d, move_x: %d, move_y: %d, x_min: %f, x_max: %f, y_min: %f, y_max: %f, iter:%d\n", data->mouse_x, data->mouse_y, data->move_x, data->move_y, data->x_min, data->x_max, data->y_min, data->y_max, data->coord.max_iter);
+//	printf("mouse_x: %d, mouse_y: %d, move_x: %d, move_y: %d, x_min: %f, x_max: %f, y_min: %f, y_max: %f\n", data->mouse_x, data->mouse_y, data->move_x, data->move_y, data->x_min, data->x_max, data->y_min, data->y_max);
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
 		data->img.mlx_img, 0, 0);
 	window_labels(data);
