@@ -20,37 +20,55 @@ void reset_fractal(t_data *data)
 	data->x_min = -2;
 	data->y_max = 2;
 	data->y_min = -2;
-	data->zoom = 1.1;
-//	data->display_shift
+	data->zoom = 1.0;
 	data->coord.max_iter = MAX_ITER;
 }
 
-void zoom_in(t_data *data, int px, int py)//funziona pochino
+void zoom_in(t_data *data, int px, int py)//funziona fino a 
 {
-	data->zoom *= 1.1;
-	double dx = (data->x_max - data->x_min) / 2;
-	double dy = (data->y_max - data->y_min) / 2;
-	data->mouse_x = data->x_min + (px + data->move_x) * (data->x_max - data->x_min) / data->small_side;
-	data->mouse_y = data->y_min + (py + data->move_y) * (data->y_max - data->y_min) / data->small_side;
-    data->x_min = data->mouse_x - dx / data->zoom;
-    data->x_max = data->mouse_x + dx / data->zoom;
-    data->y_min = data->mouse_y + dy / data->zoom;
-    data->y_max = data->mouse_y - dy / data->zoom; //ciao gio
-	data->coord.iter += px - py;
+	float	mouse_pos_x;
+	float	mouse_pos_y;
+	double	zoom_decr;
+	double	new_zoom;
+	double	zoom_factor;
+	mouse_pos_x = data->x_min + px * (data->x_max - data->x_min) / data->small_side;
+	mouse_pos_y = data->y_max - py * (data->y_max - data->y_min) / data->small_side;
+	zoom_decr = data->zoom / 10;
+	new_zoom = fabs((double)data->zoom - zoom_decr);
+	if (new_zoom <= zoom_decr)
+	{
+		zoom_decr /= 10;
+		new_zoom = data->zoom - zoom_decr;	
+	}
+	zoom_factor = new_zoom / data->zoom;
+	data->x_min = mouse_pos_x - (mouse_pos_x - data->x_min) * zoom_factor;
+	data->x_max = mouse_pos_x + (data->x_max - mouse_pos_x) * zoom_factor;
+	data->y_min = mouse_pos_y - (mouse_pos_y - data->y_min) * zoom_factor;
+	data->y_max = mouse_pos_y + (data->y_max - mouse_pos_y) * zoom_factor;	
+	data->zoom = new_zoom;
+	data->coord.max_iter += 5;
+	printf("\n\nmouse_pos_x: %f\nmouse_pos_y: %f\nzoom_decr: %lf\nnew_zoom: %lf\nzoom_factor: %lf\nx_min: %f\nx_max: %f\ny_min: %f\ny_max: %f\nzoom: %f\nmax_iter: %d\n\n", mouse_pos_x, mouse_pos_y, zoom_decr, new_zoom, zoom_factor, data->x_min, data->x_max, data->y_min, data->y_max, data->zoom, data->coord.max_iter);
 }
 
 void zoom_out(t_data *data, int px, int py)//non FUNZIONAAAAAAAA
 {
-	data->zoom *= 1.1;
-	double dx = (data->x_max + data->x_min) / 2;
-	double dy = (data->y_max + data->y_min) / 2;
-	data->mouse_x = data->x_min - (px + data->move_x) / (data->x_max - data->x_min) / data->small_side;
-	data->mouse_y = data->y_min - (py + data->move_y) / (data->y_max - data->y_min) / data->small_side;
-    data->x_min = data->mouse_x + dx / data->zoom;
-    data->x_max = data->mouse_x - dx / data->zoom;
-    data->y_min = data->mouse_y - dy / data->zoom;
-    data->y_max = data->mouse_y + dy / data->zoom;
-	data->coord.iter -= px - py;
+	float	mouse_pos_x;
+	float	mouse_pos_y;
+	double	zoom_incr;
+	double	new_zoom;
+	double	zoom_factor;
+	mouse_pos_x = data->x_min + px * (data->x_max - data->x_min) / data->small_side;
+	mouse_pos_y = data->y_max - py * (data->y_max - data->y_min) / data->small_side;
+	zoom_incr = 0.1;
+	new_zoom = data->zoom + zoom_incr;
+	zoom_factor = new_zoom / data->zoom;
+	data->x_min = mouse_pos_x - (mouse_pos_x + data->x_min) / zoom_factor;
+	data->x_max = mouse_pos_x + (data->x_max + mouse_pos_x) / zoom_factor;
+	data->y_min = mouse_pos_y - (mouse_pos_y + data->y_min) / zoom_factor;
+	data->y_max = mouse_pos_y + (data->y_max + mouse_pos_y) / zoom_factor;	
+	data->zoom = new_zoom;
+	data->coord.max_iter -= 5;
+	printf("\n\nmouse_pos_x: %f\nmouse_pos_y: %f\nzoom_incr: %lf\nnew_zoom: %lf\nzoom_factor: %lf\nx_min: %f\nx_max: %f\ny_min: %f\ny_max: %f\nzoom: %f\nmax_iter: %d\n\n", mouse_pos_x, mouse_pos_y, zoom_incr, new_zoom, zoom_factor, data->x_min, data->x_max, data->y_min, data->y_max, data->zoom, data->coord.max_iter);
 }
 
 int	mouse_handler(int keycode, int px, int py, t_data *data)

@@ -60,7 +60,7 @@ typedef struct s_data
 	void		*win_ptr;
 	char		*fractal;
 	int 		small_side;
-	float 	    zoom;
+	double 	    zoom;
 	int 		color;
 	int			move_x;
 	int			move_y;
