@@ -41,7 +41,7 @@ void zoom_in(t_data *data, int px, int py)//funziona pochino
 
 void zoom_out(t_data *data, int px, int py)//non FUNZIONAAAAAAAA
 {
-	data->zoom *= 1.1;
+	data->zoom /= 1.1;
 	double dx = (data->x_max + data->x_min) / 2;
 	double dy = (data->y_max + data->y_min) / 2;
 	data->mouse_x = data->x_min - (px + data->move_x) / (data->x_max - data->x_min) / data->small_side;
@@ -81,7 +81,7 @@ int	key_handler(int keycode, t_data *data)
 	else if (keycode == XK_Right)
 		data->move_x += WIN_WIDTH / 20;
 	else if (keycode == XK_c)
-		data->color *= 69;
+		data->color *= 5;
 	else if (keycode == XK_r)
 		reset_fractal(data);
 	else
