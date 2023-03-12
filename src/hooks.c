@@ -21,6 +21,7 @@ void reset_fractal(t_data *data)
 	data->y_max = 2;
 	data->y_min = -2;
 	data->zoom = 1.0;
+	data->color = 0xBB00AA;
 	data->coord.max_iter = MAX_ITER;
 }
 
