@@ -31,8 +31,8 @@ void zoom_in(t_data *data, int px, int py)//funziona fino a
 	double	zoom_decr;
 	double	new_zoom;
 	double	zoom_factor;
-	mouse_pos_x = data->x_min + px * (data->x_max - data->x_min) / data->small_side;
-	mouse_pos_y = data->y_max - py * (data->y_max - data->y_min) / data->small_side;
+	mouse_pos_x = data->x_min + (px + data->move_x) * (data->x_max - data->x_min) / data->small_side;
+	mouse_pos_y = data->y_max - (data->move_y + py) * (data->y_max - data->y_min) / data->small_side;
 	zoom_decr = data->zoom / 10;
 	new_zoom = fabs((double)data->zoom - zoom_decr);
 	if (new_zoom <= zoom_decr)
