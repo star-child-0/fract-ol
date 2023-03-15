@@ -60,7 +60,7 @@ typedef struct s_data
 	void		*win_ptr;
 	char		*fractal;
 	int 		small_side;
-	double 	    zoom;
+	long double	zoom;
 	int 		color;
 	int			move_x;
 	int			move_y;
@@ -70,6 +70,12 @@ typedef struct s_data
 	float       y_max;
 	int			mouse_x;
 	int			mouse_y;
+	float		mouse_pos_x;
+	float		mouse_pos_y;
+	long double	zoom_decr;
+	long double zoom_incr;
+	long double	new_zoom;
+	long double	zoom_factor;
 	t_img		img;
 	t_coords	coord;
 }	t_data;
