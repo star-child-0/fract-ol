@@ -34,7 +34,7 @@ int	equation(t_data *data)
 			data->coord.c.im = data->y_max - (data->coord.py + data->move_y) * (data->y_max - data->y_min) / data->small_side;
 			equation2(data);
 			my_mlx_pixel_put(data, data->coord.px, data->coord.py, data->color
-				* data->coord.iter * 4200);
+			 * (data->coord.iter * 5));
 			data->coord.py++;
 		}
 		data->coord.px++;
@@ -68,7 +68,6 @@ void	draw(t_data *data)
 	if(data->mouse_y < 0)
 		data->mouse_y = 0;
 	equation(data);
-//	printf("mouse_x: %d, mouse_y: %d, move_x: %d, move_y: %d, x_min: %f, x_max: %f, y_min: %f, y_max: %f\n", data->mouse_x, data->mouse_y, data->move_x, data->move_y, data->x_min, data->x_max, data->y_min, data->y_max);
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
 		data->img.mlx_img, 0, 0);
 	window_labels(data);
