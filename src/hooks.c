@@ -21,10 +21,11 @@ void reset_fractal(t_data *data)
 	data->y_max = 2;
 	data->y_min = -2;
 	data->zoom = 1.0;
+	data->color = 0xBB00AA;
 	data->coord.max_iter = MAX_ITER;
 }
 
-void zoom_in(t_data *data, int px, int py)//funziona fino a 
+void zoom_in(t_data *data, int px, int py) 
 {
 	data->mouse_pos_x = data->x_min + (px + data->move_x) * (data->x_max - data->x_min) / data->small_side;
 	data->mouse_pos_y = data->y_max - (data->move_y + py) * (data->y_max - data->y_min) / data->small_side;
@@ -45,7 +46,7 @@ void zoom_in(t_data *data, int px, int py)//funziona fino a
 	//printf("\n\ndata->mouse_pos_x: %f\ndata->mouse_pos_y: %f\ndata->zoom_decr: %lf\ndata->new_zoom: %lf\ndata->zoom_factor: %lf\nx_min: %f\nx_max: %f\ny_min: %f\ny_max: %f\nzoom: %f\nmax_iter: %d\n\n", data->mouse_pos_x, data->mouse_pos_y, data->zoom_decr, data->new_zoom, data->zoom_factor, data->x_min, data->x_max, data->y_min, data->y_max, data->zoom, data->coord.max_iter);
 }
 
-void zoom_out(t_data *data, int px, int py)//non FUNZIONAAAAAAAA
+void zoom_out(t_data *data, int px, int py)
 {
 	data->mouse_pos_x = data->x_min + (px + data->move_x) * (data->x_max - data->x_min) / data->small_side;
 	data->mouse_pos_y = data->y_max - (data->move_y + py) * (data->y_max - data->y_min) / data->small_side;
@@ -63,7 +64,7 @@ void zoom_out(t_data *data, int px, int py)//non FUNZIONAAAAAAAA
 	data->y_max = data->mouse_pos_y + (data->y_max - data->mouse_pos_y) * data->zoom_factor;
 	data->zoom = data->new_zoom;
 	data->coord.max_iter -= 5;
-	//printf("\n\ndata->mouse_pos_x: %f\ndata->mouse_pos_y: %f\nzoom_incr: %lf\ndata->new_zoom: %lf\ndata->zoom_factor: %lf\nx_min: %f\nx_max: %f\ny_min: %f\ny_max: %f\nzoom: %f\nmax_iter: %d\n\n", data->mouse_pos_x, data->mouse_pos_y, zoom_incr, data->new_zoom, data->zoom_factor, data->x_min, data->x_max, data->y_min, data->y_max, data->zoom, data->coord.max_iter);
+//printf("\n\ndata->mouse_pos_x: %f\ndata->mouse_pos_y: %f\nzoom_incr: %lf\ndata->new_zoom: %lf\ndata->zoom_factor: %lf\nx_min: %f\nx_max: %f\ny_min: %f\ny_max: %f\nzoom: %f\nmax_iter: %d\n\n", data->mouse_pos_x, data->mouse_pos_y, zoom_incr, data->new_zoom, data->zoom_factor, data->x_min, data->x_max, data->y_min, data->y_max, data->zoom, data->coord.max_iter);}
 }
 
 int	mouse_handler(int keycode, int px, int py, t_data *data)
