@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 18:59:56 by anvannin          #+#    #+#             */
-/*   Updated: 2023/03/17 19:07:27 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/03/17 20:03:07 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,11 +97,20 @@ int		key_handler(int keycode, t_data *data);
 int		mouse_handler(int keycode, int x, int y, t_data *data);
 /*Draw*/
 void	draw_handler(t_data *data);
-int		equation(t_data *data);
-void	equation2(t_data *data);
+int		mandelbrot_equation(t_data *data);
+void	mandelbrot_sequel(t_data *data);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 void	draw(t_data *data);
 void	window_labels(t_data *data);
+
+/* Which fractal */
+int		which_fractal(char *fractal);
+
+/* Julia */
+void	julia_equation_init(t_data *data);
+int		julia_equation(t_data *data);
+void	julia_sequel(t_data *data);
+
 /*Errors*/
 int		error_msg(void);
 /*End*/

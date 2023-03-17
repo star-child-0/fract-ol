@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:09:55 by gmattei           #+#    #+#             */
-/*   Updated: 2023/03/17 19:07:37 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/03/17 19:56:02 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 	*pixel = color;
 }
 
-int	equation(t_data *data)
+int	mandelbrot_equation(t_data *data)
 {
 	data->coord.px = 0;
 	while (data->coord.px < data->small_side)
@@ -34,7 +34,7 @@ int	equation(t_data *data)
 				* (data->x_max - data->x_min) / data->small_side;
 			data->coord.c.im = data->y_max - (data->coord.py + data->move_y)
 				* (data->y_max - data->y_min) / data->small_side;
-			equation2(data);
+			mandelbrot_sequel(data);
 			my_mlx_pixel_put(data, data->coord.px, data->coord.py, data->color
 				* (data->coord.iter * 5));
 			data->coord.py++;
@@ -44,7 +44,7 @@ int	equation(t_data *data)
 	return (0);
 }
 
-void	equation2(t_data *data)
+void	mandelbrot_sequel(t_data *data)
 {
 	data->coord.z.re = 0;
 	data->coord.z.im = 0;
@@ -71,7 +71,10 @@ void	draw(t_data *data)
 		data->mouse_y = WIN_HEIGHT;
 	if (data->mouse_y < 0)
 		data->mouse_y = 0;
-	equation(data);
+	if (which_fractal(data->fractal) == 2)
+		julia_equation(data);
+	else
+		mandelbrot_equation(data);
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
 		data->img.mlx_img, 0, 0);
 	window_labels(data);
