@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 20:43:51 by anvannin          #+#    #+#             */
-/*   Updated: 2023/03/06 19:54:50 by cscelfo          ###   ########.fr       */
+/*   Updated: 2023/03/17 19:02:37 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ int	valid_args(int argc, char **argv)
 	{
 		if (!ft_strncmp(argv[1], "mandelbrot", ft_strlen(argv[1]))
 			|| !ft_strncmp(argv[1], "burningship", ft_strlen(argv[1])))
-				return (1);
+			return (1);
 	}
 	else if (argc == 4)
 	{
 		if (!ft_strncmp(argv[1], "julia", ft_strlen(argv[1]))
 			&& julia_args(argv))
-				return (1);
+			return (1);
 	}
 	else
 		error_msg();

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cscelfo <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 18:59:56 by anvannin          #+#    #+#             */
-/*   Updated: 2023/03/07 14:25:51 by cscelfo          ###   ########.fr       */
+/*   Updated: 2023/03/17 19:07:27 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,22 +27,26 @@
 # define WIN_HEIGHT 600
 # define MAX_ITER 150
 
-typedef struct  s_complex
+// re		=	real
+// re_sq	=	real squared
+// im		=	imaginary
+// im_sq	=	imaginary squared
+typedef struct s_complex
 {
-    float      re; // real
-	float	   re_sq; // real squared
-    float      im; // imaginary
-	float	   im_sq; // imaginary squared
-}               t_complex;
+	float		re;
+	float		re_sq;
+	float		im;
+	float		im_sq;
+}	t_complex;
 
 typedef struct s_coords
 {
-	float	px;
-	float	py;
+	int			iter;
+	int			max_iter;
+	float		px;
+	float		py;
 	t_complex	c;
 	t_complex	z;
-	int		iter;
-	int		max_iter;
 }	t_coords;
 
 typedef struct s_img
@@ -59,21 +63,21 @@ typedef struct s_data
 	void		*mlx_ptr;
 	void		*win_ptr;
 	char		*fractal;
-	int 		small_side;
+	int			small_side;
 	long double	zoom;
-	int 		color;
+	int			color;
 	int			move_x;
 	int			move_y;
-	float       x_min;
-	float       x_max;
-	float       y_min;
-	float       y_max;
+	float		x_min;
+	float		x_max;
+	float		y_min;
+	float		y_max;
 	int			mouse_x;
 	int			mouse_y;
 	float		mouse_pos_x;
 	float		mouse_pos_y;
 	long double	zoom_decr;
-	long double zoom_incr;
+	long double	zoom_incr;
 	long double	new_zoom;
 	long double	zoom_factor;
 	t_img		img;
@@ -86,7 +90,7 @@ int		valid_args(int argc, char **argv);
 int		hooks_init(t_data *data);
 int		window_init(t_data *data);
 void	mlx_set_window_position(void *mlx_ptr, void *win_ptr, int x, int y);
-int		get_small_side();
+int		get_small_side(void);
 /*Hooks*/
 //int		hook_handler(int keycode, t_data *data);
 int		key_handler(int keycode, t_data *data);
@@ -94,7 +98,7 @@ int		mouse_handler(int keycode, int x, int y, t_data *data);
 /*Draw*/
 void	draw_handler(t_data *data);
 int		equation(t_data *data);
-void		equation2(t_data *data);
+void	equation2(t_data *data);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 void	draw(t_data *data);
 void	window_labels(t_data *data);
