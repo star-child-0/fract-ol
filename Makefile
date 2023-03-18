@@ -18,24 +18,27 @@ RM = rm -f
 
 NAME = fractol
 
-all: $(NAME)
+all: lib $(NAME)
+
+lib:
+	make -sC libft
 
 $(NAME): $(OBJECTS)
-	make -C libft
-	make all -C minilibx-linux
-	$(CC) $(CFLAGS) $(OBJECTS) -o $(NAME) -L minilibx-linux -lmlx -lXext -lX11 -lm $(LIBFT)
-	clear
+	@echo "Compiling fract-ol"
+	@$(CC) $(CFLAGS) $(OBJECTS) -o $(NAME) -L minilibx-linux -lmlx -lXext -lX11 -lm $(LIBFT)
+	@echo "Done"
 
 clean:
-	make clean -C libft
-	make clean -C minilibx-linux
-	$(RM) $(OBJECTS)
-	clear
+	@echo "Cleaning"
+	@make clean -sC libft
+	@$(RM) $(OBJECTS)
+	@echo "Done"
 
 fclean: clean
-	make fclean -C libft
-	$(RM) $(NAME) $(OBJECTS)
-	clear
+	@echo "Removing"
+	@make fclean -sC libft
+	@$(RM) $(NAME) $(OBJECTS)
+	@echo "Done"
 
 re: fclean all
 
@@ -43,6 +46,9 @@ push:
 	git add .
 	git commit -m "make push update"
 	git push
+	
+norm:
+	norminette $(SRC)
 
 .PHONY:	all clean fclean re push
 .SILENT:
