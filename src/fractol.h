@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 18:59:56 by anvannin          #+#    #+#             */
-/*   Updated: 2023/03/17 20:03:07 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/03/18 17:32:53 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,8 @@ typedef struct s_data
 }	t_data;
 
 /*Args*/
-int		valid_args(int argc, char **argv);
+int		julia_args(char **argv, t_data *data);
+int		valid_args(int argc, char **argv, t_data *data);
 /*Init*/
 int		hooks_init(t_data *data);
 int		window_init(t_data *data);
