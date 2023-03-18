@@ -1,4 +1,6 @@
-FILES = main.c valid_args.c init.c error_msg.c hooks.c draw.c which_fractal.c julia.c\
+FILES = main.c valid_args.c init.c which_fractal.c\
+	error_msg.c hooks.c draw.c\
+	mandelbrot.c julia.c\
 
 LIBFT = libft/libft.a
 

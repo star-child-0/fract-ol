@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 18:59:56 by anvannin          #+#    #+#             */
-/*   Updated: 2023/03/18 17:32:53 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/03/18 18:13:04 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,16 @@ typedef struct s_img
 	int		endian;
 }	t_img;
 
+/*
+	fractal =	1 for mandelbrot
+			2 for julia
+			3 for burningship
+*/
 typedef struct s_data
 {
 	void		*mlx_ptr;
 	void		*win_ptr;
-	char		*fractal;
+	int			fractal;
 	int			small_side;
 	long double	zoom;
 	int			color;
@@ -87,6 +92,10 @@ typedef struct s_data
 /*Args*/
 int		julia_args(char **argv, t_data *data);
 int		valid_args(int argc, char **argv, t_data *data);
+
+/* Which fractal */
+int		which_fractal(char *fractal);
+
 /*Init*/
 int		hooks_init(t_data *data);
 int		window_init(t_data *data);
@@ -98,14 +107,13 @@ int		key_handler(int keycode, t_data *data);
 int		mouse_handler(int keycode, int x, int y, t_data *data);
 /*Draw*/
 void	draw_handler(t_data *data);
-int		mandelbrot_equation(t_data *data);
-void	mandelbrot_sequel(t_data *data);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 void	draw(t_data *data);
 void	window_labels(t_data *data);
 
-/* Which fractal */
-int		which_fractal(char *fractal);
+/* Mandelbrot */
+int		mandelbrot_equation(t_data *data);
+void	mandelbrot_sequel(t_data *data);
 
 /* Julia */
 void	julia_equation_init(t_data *data);

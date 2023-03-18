@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:09:55 by gmattei           #+#    #+#             */
-/*   Updated: 2023/03/18 17:17:14 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/03/18 18:11:12 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,48 +21,6 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 	*pixel = color;
 }
 
-int	mandelbrot_equation(t_data *data)
-{
-	data->coord.px = 0;
-	while (data->coord.px < data->small_side)
-	{
-		data->coord.py = 0;
-		while (data->coord.py < data->small_side)
-		{
-			data->coord.iter = 0;
-			data->coord.c.re = data->x_min + (data->coord.px + data->move_x)
-				* (data->x_max - data->x_min) / data->small_side;
-			data->coord.c.im = data->y_max - (data->coord.py + data->move_y)
-				* (data->y_max - data->y_min) / data->small_side;
-			mandelbrot_sequel(data);
-			my_mlx_pixel_put(data, data->coord.px, data->coord.py, data->color
-				* (data->coord.iter * 5));
-			data->coord.py++;
-		}
-		data->coord.px++;
-	}
-	return (0);
-}
-
-void	mandelbrot_sequel(t_data *data)
-{
-	data->coord.z.re = 0;
-	data->coord.z.im = 0;
-	data->coord.z.re_sq = 0;
-	data->coord.z.im_sq = 0;
-	while (data->coord.z.re_sq + data->coord.z.im_sq < 4 && data->coord.iter
-		< data->coord.max_iter)
-	{
-		data->coord.z.im = 2 * data->coord.z.re * data->coord.z.im
-			+ data->coord.c.im;
-		data->coord.z.re = data->coord.z.re_sq - data->coord.z.im_sq
-			+ data->coord.c.re;
-		data->coord.z.re_sq = data->coord.z.re * data->coord.z.re;
-		data->coord.z.im_sq = data->coord.z.im * data->coord.z.im;
-		data->coord.iter++;
-	}
-}
-
 void	draw(t_data *data)
 {
 	if (data->mouse_x > WIN_WIDTH)
@@ -71,7 +29,7 @@ void	draw(t_data *data)
 		data->mouse_y = WIN_HEIGHT;
 	if (data->mouse_y < 0)
 		data->mouse_y = 0;
-	if (which_fractal(data->fractal) == 2)
+	if (data->fractal == 2)
 		julia_equation(data);
 	else
 		mandelbrot_equation(data);

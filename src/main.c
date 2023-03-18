@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 19:00:00 by anvannin          #+#    #+#             */
-/*   Updated: 2023/03/18 17:03:26 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/03/18 18:11:12 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(int argc, char **argv)
 	data = (t_data *)malloc(sizeof(t_data));
 	if (!data)
 		return (0);
-	data->fractal = argv[1];
+	data->fractal = which_fractal(argv[1]);
 	if (!valid_args(argc, argv, data))
 		error_msg();
 	else
