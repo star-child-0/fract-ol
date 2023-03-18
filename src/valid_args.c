@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 20:43:51 by anvannin          #+#    #+#             */
-/*   Updated: 2023/03/18 17:13:57 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/03/18 17:40:35 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int	julia_args(char **argv, t_data *data)
 	y = atof(argv[3]);
 	if (x > -2 && x < 2 && y > -2 && y < 2)
 	{
-		data->coord.z.re = x;
-		data->coord.z.im = y;
+		data->coord.c.re = x;
+		data->coord.c.im = y;
 		return (1);
 	}
 	return (0);
