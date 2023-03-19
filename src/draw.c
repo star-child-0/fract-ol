@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:09:55 by gmattei           #+#    #+#             */
-/*   Updated: 2023/03/19 17:37:36 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/03/19 18:41:21 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	draw(t_data *data)
 	if (data->fractal == 2)
 		julia_equation(data);
 	else
-		mandelbrot_equation(data);
+		mandelship_equation(data);
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
 		data->img.mlx_img, 0, 0);
 	window_labels(data);

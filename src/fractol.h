@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 18:59:56 by anvannin          #+#    #+#             */
-/*   Updated: 2023/03/19 17:38:13 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/03/19 18:41:21 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,16 +112,13 @@ void	draw(t_data *data);
 void	window_labels(t_data *data);
 
 /* Mandelbrot */
-int		mandelbrot_equation(t_data *data);
-void	mandelbrot_sequel(t_data *data);
+int		mandelship_equation(t_data *data);
+void	mandelship_sequel(t_data *data);
 
 /* Julia */
 void	julia_equation_init(t_data *data);
 int		julia_equation(t_data *data);
 void	julia_sequel(t_data *data);
-
-/* Burningship */
-void	burning_ship_sequel(t_data *data);
 
 /*Errors*/
 int		error_msg(void);
