@@ -6,7 +6,7 @@
 /*   By: anvannin <anvannin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:09:55 by gmattei           #+#    #+#             */
-/*   Updated: 2023/03/18 18:11:12 by anvannin         ###   ########.fr       */
+/*   Updated: 2023/03/19 17:37:36 by anvannin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,5 @@ void	window_labels(t_data *data)
 	mlx_string_put(data->mlx_ptr, data->win_ptr, 35, 80, color,
 		"Mouse wheel to zoom in and out");
 	mlx_string_put(data->mlx_ptr, data->win_ptr, 35, 100, color,
-		"'r' to reset the view");
+		"'R' to reset the view");
 }
