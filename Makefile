@@ -48,6 +48,7 @@ push:
 	git push
 	
 norm:
+	norminette ./libft/
 	norminette $(SRC)
 
 .PHONY:	all clean fclean re push
