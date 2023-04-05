@@ -4,4 +4,4 @@
 
 [submodule "libft"]
 	path = libft
-	url = https://github.com/star-child-0/libft.git
+	url = git@github.com:star-child-0/Mylibft.git
